@@ -1,0 +1,45 @@
+.img{
+  width: 153px;
+  height: 121px;
+  left:140px;
+  top:85px;
+}
+.img-responsive{
+  width: 153px;
+  height: 121px;
+  left:140px;
+  top:85px;
+}
+.Person{
+  border-radius: 100%;
+  width: 88.8px;
+  height: 88.8px;
+  top:77.5px;
+}
+
+#one{
+	position: relative;
+	top:120px;
+}
+#q{
+  font-size: 35px;
+  font-weight: 900;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.21;
+  letter-spacing: 4.2px;
+  color: #242424;
+}
+#two{
+	position: relative;
+	top:260px;
+
+}
+/*.uno{
+  width: 191.1px;
+  height: 52.8px;
+  border-radius: 67px;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.16);
+  background-color: #ff1400;
+
+}*/
