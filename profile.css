@@ -1,8 +1,17 @@
+body{
+	margin:0;
+	padding:0;
+}
+.container{
+	padding:0;
+	margin:0;
+}
 .img-responsive{
 	padding-top:50px;
 	max-width: 133px;
 	width:10vw;
 	height:auto;
+	margin-left:5vw;
 }
 .Person{
 	max-width:126px;
@@ -10,6 +19,94 @@
 	height:auto;
 	border-radius:100%;
 }
-#one{
-	padding-left: 50%;
+.details{
+	/* background: purple; */
+	width:25vw;
+	height:50vh;
+	margin: 56px;
+	margin-right: 11vw;
+	padding:10px;
+	float: right;
+	text-align: center;
+}
+.name{
+	border:0;
+  font-family: Quicksand;
+  font-size: 25px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.26;
+  letter-spacing: 1.9px;
+  text-align: center;
+  color: #000000;
+	/* margin-left: 58vw; */
+
+}
+.email{
+	border:0;
+  font-family: Quicksand;
+  font-size: 25px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.26;
+  letter-spacing: 1.9px;
+  text-align: center;
+  color: #000000;
+
+}
+.password{
+	border:0;
+	font-family: Quicksand;
+  font-size: 25px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.26;
+  letter-spacing: 1.9px;
+	text-align: center;
+	/* border: solid 1px #707070; */
+   color: #6e1ae6;
+
+}
+.subscript{
+  font-family: Quicksand;
+  font-size: 14px;
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.24;
+  letter-spacing: 1px;
+  text-align: center;
+  color: #000000;
+}
+.interests{
+	font-family: Quicksand;
+  font-size: 20px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.26;
+  letter-spacing: 1.9px;
+  text-align: center;
+  color: #6e1ae6;
+}
+.fa-pen{
+	opacity: 0.3;
+}
+.btn{
+	border-radius: 15px;
+  border: solid 1px #707070;
+  background-color: #6e1ae6;
+  font-family: Quicksand;
+  font-size: 15px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.25;
+  letter-spacing: 1.2px;
+  text-align: center;
+  color: #ffffff;
+}
 }
