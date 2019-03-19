@@ -13,11 +13,20 @@ body{
 	height:auto;
 	margin-left:5vw;
 }
-.Person{
+.Person,.Person1,.Person2,.Person3{
 	max-width:126px;
 	width:10vw;
 	height:auto;
 	border-radius:100%;
+}
+.Person1{
+  z-index: 1;
+}
+.Person2{
+  z-index: 2;
+}
+.Person3{
+  z-index: 3;
 }
 .details{
 	/* background: purple; */

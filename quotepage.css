@@ -61,7 +61,7 @@
 
 }
 #uno{
-  max-width: 191.1px;
+  max-width: 250px;
   width:7vw;
   height:auto;
   max-height: 52.8px;
@@ -71,7 +71,7 @@
 
 }
 #dos{
-  max-width: 191.1px;
+  max-width: 250px;
   width:7vw;
   height:auto;
   max-height: 52.8px;
@@ -81,7 +81,7 @@
 } 
 
 #tres{
-  max-width: 191.1px;
+  max-width: 250px;
   width:7vw;
   height:auto;
   max-height: 52.8px;
@@ -92,7 +92,7 @@
   
 }
 #quad{
-  max-width: 191.1px;
+  max-width: 250px;
   width:7vw;
   height:auto;
   max-height: 52.8px;
@@ -102,7 +102,7 @@
 
 }
 #pent{
-  max-width: 191.1px;
+  max-width: 250px;
   width:7vw;
   height:auto;
   max-height: 52.8px;
@@ -112,7 +112,7 @@
 
 }
 #hex{
-  max-width: 191.1px;
+  max-width: 250px;
   width:7vw;
   height:auto;
   max-height: 52.8px;
@@ -173,7 +173,7 @@
   }
   #two{
   [class*="col="]{
-    width:100%;
+    width:33%;
   }
 }
 }
