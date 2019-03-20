@@ -1,10 +1,8 @@
 .body{
-  padding:20px;
+  padding:20vw;
   margin:10px;
-}
-.container{
-  padding:0;
-  margin:10 auto;
+  /* width:100vw; */
+  /* height: 100vh; */
 }
 .img{
   max-width: 153px;
@@ -13,6 +11,7 @@
   height:auto;
   left:140px;
   top:85px;
+  padding:25px;
 }
 .img-responsive{
   max-width: 153px;
@@ -62,7 +61,9 @@
 }
 #uno{
   max-width: 250px;
-  width:7vw;
+  min-width:100px;
+  margin:5px 0;
+  width:10vw;
   height:auto;
   max-height: 52.8px;
   border-radius: 67px;
@@ -72,7 +73,9 @@
 }
 #dos{
   max-width: 250px;
-  width:7vw;
+  min-width:100px;
+  margin:5px 0;
+  width:10vw;
   height:auto;
   max-height: 52.8px;
   border-radius: 67px;
@@ -82,7 +85,9 @@
 
 #tres{
   max-width: 250px;
-  width:7vw;
+  min-width:100px;
+  margin:5px 0;
+  width:10vw;
   height:auto;
   max-height: 52.8px;
   border-radius: 67px;
@@ -93,7 +98,9 @@
 }
 #quad{
   max-width: 250px;
-  width:7vw;
+  min-width:100px;
+  margin:5px 0;
+  width:10vw;
   height:auto;
   max-height: 52.8px;
   border-radius: 67px;
@@ -103,7 +110,9 @@
 }
 #pent{
   max-width: 250px;
-  width:7vw;
+  min-width:100px;
+  margin:5px 0;
+  width:10vw;
   height:auto;
   max-height: 52.8px;
   border-radius: 67px;
@@ -113,7 +122,9 @@
 }
 #hex{
   max-width: 250px;
-  width:7vw;
+  min-width:100px;
+  margin:5px 0;
+  width:10vw;
   height:auto;
   max-height: 52.8px;
   border-radius: 67px;
@@ -123,21 +134,30 @@
 }
 .fa-times{
   float:right;
+  margin:5px 15px;
+  
+
 }
 .fa-plus{
   float:left;
   color: #000000;
   opacity:0.25;
+  margin: 5px 15px;
 }
 #AddTag{
   max-width: 191.8px;
   max-height: 40.8px;
-  width:10vw;
+  min-width: 100px;
+  width:15vw;
   height:auto;
   border-radius: 67px;
   box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.16);
   margin:2vw;
   border: solid 1px #6e1ae6;
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform: translate(-50%,-50%);
 }
 #addtag{
   /* max-width: 90px;
@@ -150,14 +170,28 @@
   font-weight: bold; 
   font-style: normal;
   font-stretch: normal; 
-  line-height: 1.26;
+  line-height: 1.4;
   letter-spacing: 1.1px;
   color: #000000;
 
 }
 @media only screen and (max-width: 600px){
   body{
-    background: lightblue;
+    /* margin:0; */
+    /* width:45vw; */
+    /* height:100%; */
+    /* overflow:hidden; */
+    /* position:fixed; */
+  }
+  #zero{
+    width:70vw;
+    height:auto;
+    margin:0;
+    padding:0;
+  }
+  .img{
+    padding:10px;
+    margin:0;
   }
   #q{
     font-size:20px;
@@ -165,15 +199,18 @@
   #two,#addtag{
     font-size:11px;
   }
+  .fa-times{
+    margin:6px;
+    line-height:1px;
+  }
+  #AddTag{
+    margin:5vw -2vw;
+  }
+  #addtag{
+    font-size: 11px;
+    right:10px;
+    text-align:left;
+  }
+  
 
-}
-@media only screen and(max-width: 768px){
-  body{
-    background:red;
-  }
-  #two{
-  [class*="col="]{
-    width:33%;
-  }
-}
 }
