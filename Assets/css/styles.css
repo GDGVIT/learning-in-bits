@@ -74,8 +74,18 @@ body{
     min-width: 150px;
     width:25vw;
     right:15vw;
+    /* display:none; */
 }
-
+.signup{
+    position: relative;
+    top:25vh;
+    left:55vw;
+    max-width:450px;
+    min-width: 150px;
+    width:25vw;
+    right:15vw;
+    display:none;
+}
 input:focus,
 select:focus,
 textarea:focus,
@@ -159,6 +169,15 @@ button:focus {
     float:right;
     margin-top:5px;
 }
+.new{
+    font-size:.8em;
+    color: #6e1ae6;
+    /* position: absolute;
+    top:50%;
+    left:50%; */
+    /* margin:2vw 5vh; */
+    text-align:center;
+}
 @media (max-width: 600px){
     .login{
         width:50vw;
@@ -167,6 +186,15 @@ button:focus {
         left:50%;
         top:50%;
         transform: translate(-50%,-50%);
+    }
+    .signup{
+        width:50vw;
+        height:auto;
+        position: absolute;
+        left:50%;
+        top:50%;
+        transform: translate(-50%,-50%);
+
     }
     .lg{
         font-size: 25px;
