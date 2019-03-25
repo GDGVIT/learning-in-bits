@@ -4,18 +4,21 @@ body{
 }
 .container{
 	padding:0;
-	margin:0;
+  margin:0;
+  width:100vw;
+  height:100vh;
 }
 .img-responsive{
-	padding-top:50px;
+	padding-top:3vw;
 	max-width: 133px;
 	width:10vw;
 	height:auto;
-	margin-left:5vw;
+	margin-left:7vw;
 }
 .Person,.Person1,.Person2,.Person3{
 	max-width:126px;
-	width:10vw;
+  width:10vw;
+  margin-left:30px;
 	height:auto;
 	border-radius:100%;
 }
@@ -38,8 +41,16 @@ body{
 	float: right;
 	text-align: center;
 }
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
 .name{
-	border:0;
+  border:0;
+   border-bottom:1px solid #6e1ae6;
   font-family: Quicksand;
   font-size: 25px;
   font-weight: bold;
@@ -48,12 +59,13 @@ body{
   line-height: 1.26;
   letter-spacing: 1.9px;
   text-align: center;
-  color: #000000;
+  color: #6e1ae6;
 	/* margin-left: 58vw; */
 
 }
 .email{
-	border:0;
+  border:0;
+  border-bottom:1px solid #6e1ae6;
   font-family: Quicksand;
   font-size: 25px;
   font-weight: bold;
@@ -62,11 +74,12 @@ body{
   line-height: 1.26;
   letter-spacing: 1.9px;
   text-align: center;
-  color: #000000;
+  color:#6e1ae6;
 
 }
 .password{
-	border:0;
+  border:0;
+  border-bottom:1px solid #6e1ae6;
 	font-family: Quicksand;
   font-size: 25px;
   font-weight: bold;
@@ -104,8 +117,11 @@ body{
 .fa-pen{
 	opacity: 0.3;
 }
-.btn{
-	border-radius: 15px;
+.bt{
+  border-radius: 15px;
+  height:4vh;
+  width:7vw;
+  min-width:7vw;
   border: solid 1px #707070;
   background-color: #6e1ae6;
   font-family: Quicksand;
@@ -118,4 +134,52 @@ body{
   text-align: center;
   color: #ffffff;
 }
+button, button:focus {
+  outline: none;
+  border: 0;
+  cursor: pointer;
+
+}
+@media only screen and (max-width:600px){
+  .container{
+    left:0;
+    overflow: hidden;
+  }
+  .profile{
+    /* margin-left:0; */
+    position:absolute;
+    top:50%;
+    left:40%;
+    transform:translate(-50%,-50%);
+  }
+  .Person{
+    margin-left:-10px;
+    width:15vw;
+  }
+  .bt{
+    width:25vw;
+    height:4vh;
+    margin-top:10px;
+    margin-left:37px;
+  }
+  .interests{
+    font-size:0.8em;
+    margin-left:30px;
+    width:30vw;
+    height:auto;
+  }
+  .name,.email,.password{
+    width: 40vw;
+  }
+  .subscript{
+    font-size:0.8em;
+    /* text-align:center; */
+    width:30vw;
+    margin-left:25px;
+  }
+  .fa-pen{
+    position:absolute;
+    right:-40px;
+    
+  }
 }
