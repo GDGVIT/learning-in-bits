@@ -31,13 +31,15 @@ def scraper(ParentLink):
     collection=db[clName]
     posts=db.posts
 
-    driver = webdriver.Chrome('C:\\Users\\mailr\\Desktop\\ChromeDriver') 
+    
+
+    driver = webdriver.Chrome('ChromeDriver') 
     website = ParentLink
     driver.get(website) 
     sauce = driver.page_source
     soup=bs.BeautifulSoup(sauce,'lxml')
-    
     body=soup.find('body')   
+    
     temp_links=body.find_all('a')
     
     for link in temp_links:
@@ -97,13 +99,12 @@ def scraper(ParentLink):
                             n+=1
                             all_tags.append(temp)
                             all_tagsNames.append(temp2)
-                            
-                            try:
+                            #print(temp,"------",temp2)
+                            if(posts.find_one({"_id":temp2})==None):
                                 post={"TagName":temp2,"TagLink":temp,"_id":temp2}
                                 posts.insert_one(post).inserted_id
-                                #print(post)
-                            except:
-                                pass
+                                print(post)
+                            
                             
                             Tags[temp2]=temp
     '''
