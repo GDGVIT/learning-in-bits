@@ -56,12 +56,12 @@
   letter-spacing: 1.1px;
   text-align: center;
   color: #ffffff;
-  display:none;
+  /* display:none; */
 
 }
 #three{
-  position: relative;
-  top:260px;
+  position: absolute;
+  top:520px;
   font-family: Quicksand;
   font-size: 19px;
   font-weight: bold;
