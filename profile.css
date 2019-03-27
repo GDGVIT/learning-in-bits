@@ -31,6 +31,9 @@ body{
 .Person3{
   z-index: 3;
 }
+.fa-pen{
+ float:right;
+}
 .details{
 	/* background: purple; */
 	width:25vw;
@@ -103,6 +106,16 @@ button:focus {
   letter-spacing: 1.9px;
   text-align: center;
   color: #6e1ae6;
+}
+
+.edit{
+  /* display:inline; */
+  /* visibility: hidden; */
+  display:none;
+  border:0;
+}
+input[type='text']{
+  border:0;
 }
 .fa-pen{
 	opacity: 0.3;

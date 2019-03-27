@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
 		integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+	<script type="text/javascript" src="assets/js/lib/jquery-2.2.4.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="profile.css">
 </head>
 
@@ -34,24 +35,45 @@
 				<!-- <div class="col-5"></div> -->
 			</div>
 			<div class="details">
+					<i class='fa fa-pen'></i>
 				<div>
 					<p class="name">Full Name</p>
-					<i class="fas fa-pen"></i>
+					<div class="edit">
+						<input type="text" placeholder="Full name">
+					</div>
 					<p class="subscript">Full name</p>
+
 				</div>
-				<p class="email">Email</p><i class="fas fa-pen"></i>
-				<p class="subscript">Email</p>
-				<p class="password">Password</p><i class="fas fa-pen"></i>
-				<p class="subscript">Password</p>
-				<p class="interests"> Tag 1, Tag 2, Tag 3, Tag 4, Tag 5, Tag 6</p>
-				<p class="subscript">Interests</p>
-				<button class="bt"> Log In </button>
+				<div>
+					<p class="email">Email</p>
+					<div class="edit">
+						<input type="text" placeholder="Email">
+					</div>
+					<p class="subscript">Email</p>
+
+
+				</div>
+				<div>
+					<p class="password">Password</p>
+					<div class="edit">
+						<input type="text" placeholder="Password">
+					</div>
+					<p class="subscript">Password</p>
+
+
+				</div>
+				<div>
+					<p class="interests"> Tag 1, Tag 2, Tag 3, Tag 4, Tag 5, Tag 6</p>
+					<p class="subscript">Interests</p>
+				</div>
+
+				<button class="bt"> Log Out </button>
 			</div>
 		</div>
 
 	</div>
 
-
+	<script src="profile.js"></script>
 </body>
 
 </html>

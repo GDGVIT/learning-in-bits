@@ -74,9 +74,9 @@ body{
     min-width: 150px;
     width:25vw;
     right:15vw;
-    display:none;
+    /* display:none; */
 }
-.signup{
+/* .signup{
     position: relative;
     top:15vh;
     left:55vw;
@@ -84,8 +84,8 @@ body{
     min-width: 150px;
     width:25vw;
     right:15vw;
-    /* display:none; */
-}
+    display:none;
+} */
 input:focus,
 select:focus,
 textarea:focus,
