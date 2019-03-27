@@ -66,7 +66,7 @@ body{
     letter-spacing: 1.7px;
     color: #242424;
 }
-.login{
+/* .login{
     position: relative;
     top:25vh;
     left:55vw;
@@ -75,7 +75,7 @@ body{
     width:25vw;
     right:15vw;
     display:none;
-}
+} */
 .signup{
     position: relative;
     top:15vh;

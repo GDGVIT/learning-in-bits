@@ -72,6 +72,7 @@
   
 }
 #uno{
+  /* display:inline; */
   max-width: 250px;
   min-width:100px;
   margin:5px 0;
@@ -84,6 +85,7 @@
 
 }
 #dos{
+  /* display:inline; */
   max-width: 250px;
   min-width:100px;
   margin:5px 0;
@@ -96,6 +98,7 @@
 } 
 
 #tres{
+  /* display:inline; */
   max-width: 250px;
   min-width:100px;
   margin:5px 0;
@@ -109,6 +112,7 @@
   
 }
 #quad{
+  /* display:inline; */
   max-width: 250px;
   min-width:100px;
   margin:5px 0;
@@ -121,6 +125,7 @@
 
 }
 #pent{
+  /* display:inline; */
   max-width: 250px;
   min-width:100px;
   margin:5px 0;
@@ -133,6 +138,7 @@
 
 }
 #hex{
+  /* display:inline; */
   max-width: 250px;
   min-width:100px;
   margin:5px 0;

@@ -9,7 +9,8 @@ $("input[type='text']").keypress(function(e){
 });
 $("#two").on("click", "span" , function(e){
     $(this).parent().fadeOut(500,function(){
-        $(this).remove();
+        // $(this).remove();
+        $(this).parent().fadeOut();
     });
     e.stopPropagation();
 });
