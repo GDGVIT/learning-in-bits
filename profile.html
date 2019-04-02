@@ -35,11 +35,11 @@
 				<!-- <div class="col-5"></div> -->
 			</div>
 			<div class="details">
-					<i class='fa fa-pen'></i>
+				<i class='fa fa-pen'></i>
 				<div>
 					<p class="name">Full Name</p>
 					<div class="edit">
-						<input type="text" placeholder="Full name">
+						<input type="text" placeholder="">
 					</div>
 					<p class="subscript">Full name</p>
 
@@ -47,7 +47,7 @@
 				<div>
 					<p class="email">Email</p>
 					<div class="edit">
-						<input type="text" placeholder="Email">
+						<input type="text" placeholder="">
 					</div>
 					<p class="subscript">Email</p>
 
@@ -56,7 +56,7 @@
 				<div>
 					<p class="password">Password</p>
 					<div class="edit">
-						<input type="text" placeholder="Password">
+						<input type="text" placeholder="">
 					</div>
 					<p class="subscript">Password</p>
 
@@ -74,6 +74,24 @@
 	</div>
 
 	<script src="profile.js"></script>
+	<script>
+		$(document).ready(function () {
+			$.ajax({
+				type: "GET",
+				url: "http://a7f1775c.ngrok.io",
+				dataType : "jsonp",
+				cors : true,
+				headers : {
+					"Access-Control-Allow-Origin" : "*"
+				},
+				contentType: "application/json",
+				success: function (result) {
+					console.log(result);
+				}
+			})
+		});
+
+	</script>
 </body>
 
 </html>

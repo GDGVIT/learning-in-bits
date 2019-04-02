@@ -52,9 +52,9 @@ button:focus {
 }
 
 .name{
-  border-bottom:1px solid #6e1ae6;
+  /* border-bottom:1px solid #6e1ae6; */
   font-family: Quicksand;
-  font-size: 22px;
+  font-size: 25px;
   font-weight: bold;
   line-height: 1.26;
   letter-spacing: 1.9px;
@@ -64,7 +64,7 @@ button:focus {
 
 }
 .email{
-  border-bottom:1px solid #6e1ae6;
+  /* border-bottom:1px solid #6e1ae6; */
   font-family: Quicksand;
   font-size: 25px;
   font-weight: bold;
@@ -75,7 +75,7 @@ button:focus {
 
 }
 .password{
-  border-bottom:1px solid #6e1ae6;
+  /* border-bottom:1px solid #6e1ae6; */
 	font-family: Quicksand;
   font-size: 25px;
   font-weight: bold;
@@ -113,12 +113,18 @@ button:focus {
   /* visibility: hidden; */
   display:none;
   border:0;
+  font-size: 20px;
+  color:#6e1ae6;
 }
 input[type='text']{
   border:0;
+  border-bottom:1px solid #6e1ae6;
 }
-.fa-pen{
+.fa-pen,.fa-check{
 	opacity: 0.3;
+}
+.fa-check{
+  float:right;
 }
 .bt{
   border-radius: 15px;
