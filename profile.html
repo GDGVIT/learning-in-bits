@@ -54,11 +54,18 @@
 
 				</div>
 				<div>
-					<p class="password">Password</p>
+					<p class="password" style="visibility:hidden;">Password</p>
 					<div class="edit">
-						<input type="text" placeholder="">
+						<input type="text" placeholder="Confirm password">
 					</div>
-					<p class="subscript">Password</p>
+					<div class="edit">
+						<input type="text" placeholder="New password">
+					</div>
+					<div class="edit_last">
+						<input type="text" placeholder="Confirm new password">
+					</div>
+
+					<p class="subscript" style="display:none;">Password</p>
 
 
 				</div>
@@ -79,10 +86,10 @@
 			$.ajax({
 				type: "GET",
 				url: "http://a7f1775c.ngrok.io",
-				dataType : "jsonp",
-				cors : true,
-				headers : {
-					"Access-Control-Allow-Origin" : "*"
+				dataType: "jsonp",
+				cors: true,
+				headers: {
+					"Access-Control-Allow-Origin": "*"
 				},
 				contentType: "application/json",
 				success: function (result) {

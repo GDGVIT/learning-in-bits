@@ -79,6 +79,7 @@ button:focus {
 	font-family: Quicksand;
   font-size: 25px;
   font-weight: bold;
+  /* margin:7vh; */
   line-height: 1.26;
   letter-spacing: 1.9px;
 	text-align: center;
@@ -116,9 +117,26 @@ button:focus {
   font-size: 20px;
   color:#6e1ae6;
 }
+.edit_last{
+  display:none;
+  border:0;
+  font-size: 20px;
+  color:#6e1ae6;
+  margin-bottom:5vh;
+}
 input[type='text']{
   border:0;
   border-bottom:1px solid #6e1ae6;
+  color:#6e1ae6;
+}
+::placeholder{
+  font-family: Quicksand;
+  font-size: 15px;
+  line-height: 1.26;
+  letter-spacing: 1.9px;
+  text-align: center;
+  color: #707070;
+  
 }
 .fa-pen,.fa-check{
 	opacity: 0.3;
@@ -187,7 +205,7 @@ button, button:focus {
     width:30vw;
     margin-left:25px;
   }
-  .fa-pen{
+  .fa-pen,.fa-check{
     position:absolute;
     right:-40px;
     
