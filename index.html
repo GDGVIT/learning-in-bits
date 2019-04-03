@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Login Page</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css" integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="Assets/css/styles.css">
-        <script type="text/javascript" src="assets/js/lib/jquery-2.2.4.min.js"></script>
-        <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
-    
-    
-    </head>
-    <body>
-        <div class="container">
+
+<head>
+    <title>Login Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css"
+        integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="Assets/css/styles.css">
+    <script type="text/javascript" src="assets/js/lib/jquery-2.2.4.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+
+
+</head>
+
+<body>
+    <div class="container">
         <div class="main">
             <img src="Assets/Quote symbol.svg" class="q1">
         </div>
 
         <div class="main1">
-            <img src= "Assets/Quote symbol.svg" class="q2">
+            <img src="Assets/Quote symbol.svg" class="q2">
         </div>
         <div class="main2">
             <img src="Assets/learninginbits.svg" class="img">
@@ -28,11 +31,12 @@
         </div>
         <div class="login">
             <h1 class="lg"> Log In </h1>
-            <input type="text" placeholder="Username" class ="u">
-            <input type ="password" placeholder="Password" class="p">
+            <input type="text" placeholder="Username" class="u" id="name">
+            <input type="password" placeholder="Password" class="p" id="password">
             <button class="b"> Log In <img src="Assets/Arrow Symbol.svg " class="arrow"></button>
-            <h6 class="new"> New User?    <span class="sign">      Sign Up! </span></h6>
+            <h6 class="new"> New User? <span class="sign"> Sign Up! </span></h6>
         </div>
+
         <!-- <div class="signup">
             <h1 class="lg"> Sign Up </h1>
             <input type="text" placeholder="Username" class ="u">
@@ -43,7 +47,31 @@
             <h6 class="new"> Already have an account? <span class="sign">  Log In! </span></h6>
 
         </div> -->
-        </div>
-        <script src="Assets/js/index.js"></script>
-    </body>
+    </div>
+    <script src="Assets/js/index.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".b").click(function () {
+                let name = document.getElementById("name").value;
+                let password = document.getElementById("password").value;
+                let ob = { "username": name, "password": password };
+                alert(name);
+                alert(password);
+
+            });
+
+            $.ajax({
+                url: '',
+                type: 'POST',
+                data: JSON.stringify(ob),
+                contentType: 'application/json;',
+                dataType: 'json',
+                success: function (msg) {
+                    alert(msg);
+                }
+            });
+        });
+    </script>
+</body>
+
 </html>
