@@ -59,7 +59,7 @@
                 ob.username = document.getElementById("name").value;
                 ob.password = document.getElementById("password").value;
                 //console.log(ob)
-                console.log(JSON.stringify(ob))
+               // console.log(JSON.stringify(ob))
 
                 $.ajax({
                     url: 'https://stark-retreat-48003.herokuapp.com/login',
@@ -81,9 +81,9 @@
                         console.log(err)
                     }
                 });
-                $.ajaxSetup({
-                    crossOrigin: true
-                })
+                // $.ajaxSetup({
+                //     crossOrigin: true
+                // })
             });
 
         });
