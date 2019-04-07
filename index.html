@@ -7,7 +7,9 @@
         integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="Assets/css/styles.css">
-    <script type="text/javascript" src="assets/js/lib/jquery-2.2.4.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- <script type="text/javascript" src="assets/js/lib/jquery-2.2.4.min.js"></script> -->
     <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
 
 
@@ -34,7 +36,7 @@
             <input type="text" placeholder="Username" class="u" id="name">
             <input type="password" placeholder="Password" class="p" id="password">
             <button class="b"> Log In <img src="Assets/Arrow Symbol.svg " class="arrow"></button>
-            <h6 class="new"> New User? <span class="sign"> Sign Up! </span></h6>
+            <a href="signup.html"><h6 class="new"> New User? <span class="sign"> Sign Up! </span></h6></a>
         </div>
 
         <!-- <div class="signup">
@@ -48,30 +50,45 @@
 
         </div> -->
     </div>
-    <script src="Assets/js/index.js"></script>
+    <!-- <script src="Assets/js/index.js"></script> -->
     <script>
+        let ob = {}
+
         $(document).ready(function () {
             $(".b").click(function () {
-                let name = document.getElementById("name").value;
-                let password = document.getElementById("password").value;
-                let ob = { "username": name, "password": password };
-                alert(name);
-                alert(password);
+                ob.username = document.getElementById("name").value;
+                ob.password = document.getElementById("password").value;
+                //console.log(ob)
+                console.log(JSON.stringify(ob))
 
+                $.ajax({
+                    url: 'https://stark-retreat-48003.herokuapp.com/login',
+                    type: 'POST',
+                    data: JSON.stringify(ob),
+                    async: "true",
+                    crossDomain: true,
+                    crossOrigin: true,
+                    headers: {
+                        "accept": "application/json",
+                        "Access-Control-Allow-Origin": "*"
+                    },
+                    contentType: 'application/json;',
+                    success: function (response) {
+                        let resp = JSON.parse(response)
+                        console.log(resp.status);
+                    },
+                    error: function (err) {
+                        console.log(err)
+                    }
+                });
+                $.ajaxSetup({
+                    crossOrigin: true
+                })
             });
 
-            $.ajax({
-                url: '',
-                type: 'POST',
-                data: JSON.stringify(ob),
-                contentType: 'application/json;',
-                dataType: 'json',
-                success: function (msg) {
-                    alert(msg);
-                }
-            });
         });
     </script>
+    <!-- <script type="text/javascript" src="js/jquery.ajax-cross-origin.min.js"></script> -->
 </body>
 
 </html>

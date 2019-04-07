@@ -44,35 +44,45 @@
             <input type="password" placeholder="Password" class="p" id="password">
             <input type="password" placeholder="Confirm Password" class="p" id="cpassword">
             <button class="b"> Sign Up <img src="Assets/Arrow Symbol.svg " class="arrow"></button>
-            <h6 class="new"> Already have an account? <span class="sign"> Log In! </span></h6>
+            <a href="index.html"><h6 class="new"> Already have an account? <span class="sign"> Log In! </span></h6></a>
 
         </div>
     </div>
     <script src="Assets/js/index.js"></script>
     <script>
+        let ob = {
+            fullname: undefined,
+            username: undefined,
+            email: undefined,
+            password: undefined,
+            cpassword: undefined
+        }
         $(document).ready(function () {
             $(".b").click(function () {
-                let name = document.getElementById("name").value;
-                let username = document.getElementById("username").value;
-                let email = document.getElementById("email").value;
-                let password = document.getElementById("password").value;
-                let cpassword = document.getElementById("cpassword").value;
-                let ob = { "fullname": name, "username": username, "email": email, "password": password, "cpassword": cpassword };
-                alert(name);
-                alert(password);
+                ob.username = document.getElementById("username").value;
+                ob.password = document.getElementById("password").value;
+                ob.confirm_password = document.getElementById("cpassword").value;
+                ob.tags=""
+                ob.fullname = document.getElementById("name").value;
+                ob.email = document.getElementById("email").value;
 
-            });
-            $.ajax({
-                url: '',
-                type: 'POST',
-                data: JSON.stringify(ob),
-                contentType: 'application/json',
-                dataType: 'json',
-                success: function (msg) {
-                    alert(msg);
-                }
 
+                $.ajax({
+                    url: 'https://stark-retreat-48003.herokuapp.com/signup',
+                    type: 'POST',
+                    data: JSON.stringify(ob),
+                    contentType: 'application/json',
+                    dataType: 'json',
+                    success: function (msg) {
+                        console.log(msg);
+                    },
+                    error: function (err) {
+                        console.log(err);
+                    }
+
+                });
             });
+
         });
     </script>
 </body>

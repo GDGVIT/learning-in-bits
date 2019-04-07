@@ -11,6 +11,8 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
 		integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
+
+
 	<link rel="stylesheet" type="text/css" href="quotepage.css">
 </head>
 
@@ -90,9 +92,7 @@
 				<div class="col-4">
 					<div id="AddTag">
 						<i class="fa fa-plus"></i>
-						<form method="POST" action="quotepage.html">
-							<input type="text" id="addtag" name="quoteText" placeholder="Add Tags">
-						</form>
+						<input type="text" id="addtag" name="quoteText" placeholder="Add Tags">
 					</div>
 				</div>
 				<div class="col-4"></div>
@@ -110,6 +110,80 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js"
 		integrity="sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp"
 		crossorigin="anonymous"></script>
+
+	<script>
+		//sending and receiving the tag
+		let id
+		let ob = {
+			tag: undefined
+		}
+		$(document).ready(function () {
+			$("#addtag").keypress((e) => {
+				if (e.which == 13) {
+					ob.tag = document.getElementById("addtag").value;
+					console.log(JSON.stringify(ob))
+					let test = {
+						email: 'an@in.com',
+						password: 'test'
+					}
+					ob = test
+					console.log('Reached first Ajax')
+					$.ajax({
+						url: 'https://reqres.in/api/login',
+						type: 'POST',
+						data: JSON.stringify(ob),
+						contentType: 'application/JSON',
+						dataType: 'json',
+						success: (msg) => {
+							console.log('first ajax successful')
+							displayQuotes(id)
+						},
+						error: (err) => {
+							console.log('first ajax error')
+							console.log(error.responseJSON);
+
+						}
+					})
+
+					let displayQuotes = (response) => {
+
+						console.log('Reached second Ajax')
+						$.ajax({
+							url: 'https://reqres.in/api/login/' + response,
+							method: 'GET',
+							contentType: 'application/JSON',
+							success: (msg) => {
+								console.log('New tag is', response)
+							},
+							error: (err) => {
+								console.log('second ajax error');
+								console.log(error.responseJSON);
+							}
+
+						})
+					}
+				}
+				$("#hex").click(function(){
+					alert('Clicked!');
+				})
+
+			})
+		})
+
+
+		//deleting tag and send array of tags to backend
+		// $(document).ready(function () {
+		// 	$(".hex").click(function () {
+		// 		alert("clicked!");
+		// 	})
+		// 	$.ajax({
+
+
+
+		// 	})
+		// })
+
+	</script>
 </body>
 
 </html>

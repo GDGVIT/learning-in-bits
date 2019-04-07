@@ -39,7 +39,7 @@
 				<div>
 					<p class="name">Full Name</p>
 					<div class="edit">
-						<input type="text" placeholder="">
+						<input type="text" placeholder="" id="fullname">
 					</div>
 					<p class="subscript">Full name</p>
 
@@ -47,7 +47,7 @@
 				<div>
 					<p class="email">Email</p>
 					<div class="edit">
-						<input type="text" placeholder="">
+						<input type="text" placeholder="" id="email">
 					</div>
 					<p class="subscript">Email</p>
 
@@ -56,13 +56,13 @@
 				<div>
 					<p class="password" style="visibility:hidden;">Password</p>
 					<div class="edit">
-						<input type="text" placeholder="Confirm password">
+						<input type="text" placeholder="Confirm password" id="confirmpass">
 					</div>
 					<div class="edit">
-						<input type="text" placeholder="New password">
+						<input type="text" placeholder="New password" id="newpass">
 					</div>
 					<div class="edit_last">
-						<input type="text" placeholder="Confirm new password">
+						<input type="text" placeholder="Confirm new password" id="confirmnewpass">
 					</div>
 
 					<p class="subscript" style="display:none;">Password</p>
@@ -82,23 +82,36 @@
 
 	<script src="profile.js"></script>
 	<script>
+		let ob = {}
 		$(document).ready(function () {
-			$.ajax({
-				type: "GET",
-				url: "http://a7f1775c.ngrok.io",
-				dataType: "jsonp",
-				cors: true,
-				headers: {
-					"Access-Control-Allow-Origin": "*"
-				},
-				contentType: "application/json",
-				success: function (result) {
-					console.log(result);
-				}
-			})
-		});
+			$(".details").on("click", ".fa-check", function (e) {
+				ob.fullname = document.getElementById("fullname").value;
+				ob.email = document.getElementById("email").value;
+				ob.confirmpass = document.getElementById("confirmpass").value;
+				ob.newpass = document.getElementById("newpass").value;
+				ob.confirmnewpass = document.getElementById("confirmnewpass").value;
 
+				console.log(JSON.stringify(ob))
+				$.ajax({
+					url: '',
+					type: 'POST',
+					data: JSON.stringify(ob),
+					contentType: 'application/json',
+					success: function (msg) {
+						alert(msg);
+					},
+					error: function (err) {
+						alert(err);
+					}
+
+				});
+
+
+			});
+
+		});
 	</script>
+
 </body>
 
 </html>
