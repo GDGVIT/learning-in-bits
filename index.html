@@ -36,7 +36,9 @@
             <input type="text" placeholder="Username" class="u" id="name">
             <input type="password" placeholder="Password" class="p" id="password">
             <button class="b"> Log In <img src="Assets/Arrow Symbol.svg " class="arrow"></button>
-            <a href="signup.html"><h6 class="new"> New User? <span class="sign"> Sign Up! </span></h6></a>
+            <a href="signup.html">
+                <h6 class="new"> New User? <span class="sign"> Sign Up! </span></h6>
+            </a>
         </div>
 
         <!-- <div class="signup">
@@ -59,7 +61,7 @@
                 ob.username = document.getElementById("name").value;
                 ob.password = document.getElementById("password").value;
                 //console.log(ob)
-               // console.log(JSON.stringify(ob))
+                console.log(JSON.stringify(ob))
 
                 $.ajax({
                     url: 'https://stark-retreat-48003.herokuapp.com/login',
@@ -68,14 +70,17 @@
                     async: "true",
                     crossDomain: true,
                     crossOrigin: true,
+                    dataType: 'json',
                     headers: {
                         "accept": "application/json",
                         "Access-Control-Allow-Origin": "*"
                     },
                     contentType: 'application/json;',
                     success: function (response) {
-                        let resp = JSON.parse(response)
-                        console.log(resp.status);
+                        console.log("Inside success")
+                        // let resp = JSON.parse(response)
+                        // console.log(resp.status);
+                        console.log(response)
                     },
                     error: function (err) {
                         console.log(err)

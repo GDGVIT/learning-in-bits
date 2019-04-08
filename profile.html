@@ -84,6 +84,34 @@
 	<script>
 		let ob = {}
 		$(document).ready(function () {
+			//Ajax to pass token as page loads
+			$.ajax({
+				url: 'https://stark-retreat-48003.herokuapp.com/view_profile',
+				type: 'POST',
+				data: JSON.stringify({
+					"token": ""
+				}),
+				contentType: 'application/json',
+				dataType: 'json',
+				success: (msg) => {
+					console.log(msg)
+				},
+				error: (err) => {
+					console.log(err)
+				}
+			})
+			$.ajax({
+				url: 'https://stark-retreat-48003.herokuapp.com/view_profile',
+				method: 'GET',
+				contentType: 'application/JSON',
+				success: function (msg) {
+					console.log(msg)
+				},
+				error: function (err) {
+					console.log(err)
+				}
+			})
+
 			$(".details").on("click", ".fa-check", function (e) {
 				ob.token = ""
 				ob.fullname = document.getElementById("fullname").value;
@@ -107,15 +135,18 @@
 
 				})
 
-				let token = ""
-				let ob1 = {
-					token: "token"
-				}
-
+				//forgot password
 				$.ajax({
-					url: 'https://stark-retreat-48003.herokuapp.com/view_profile',
-					method: 'POST',
-					data: JSON.stringify(ob1),
+					url: 'https://stark-retreat-48003.herokuapp.com/edit_profile',
+					type: 'POST',
+					data: JSON.stringify({
+						"username": document.getElementById("fullname").value,
+						"password": document.getElementById("confirmpass").value,
+						"new_password": document.getElementById("newpass").value,
+						"confirm_new_password": document.getElementById("confirmnewpass")
+							.value
+
+					}),
 					contentType: 'application/json',
 					success: function (msg) {
 						console.log(msg)
@@ -123,22 +154,13 @@
 					error: function (err) {
 						console.log(err)
 					}
+
 				})
-				$.ajax({
-					url: 'https://stark-retreat-48003.herokuapp.com/view_profile',
-					method: 'GET',
-					contentType: 'application/JSON',
-					success: function (msg) {
-						console.log(msg)
-					},
-					error: function (err) {
-						console.log(err)
-					}
-				})
+
+
 
 
 			})
-
 		})
 	</script>
 
