@@ -81,8 +81,17 @@
                         // let resp = JSON.parse(response)
                         // console.log(resp.status);
                         console.log(response)
+                        if(response.property === "success"){
+                            //way to store token
+                            alert("You are now redirected to the profile page");
+                            window.location = "https://stark-retreat-48003.herokuapp.com/view_profile";
+                        }
+                        else{
+                            alert(response.property);
+                        }
                     },
                     error: function (err) {
+                        console.log("ERROR");
                         console.log(err)
                     }
                 });

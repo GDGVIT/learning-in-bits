@@ -38,6 +38,7 @@
         </div> -->
         <div class="signup">
             <h1 class="lg"> Sign Up </h1>
+            <h6 class="response"></h6>
             <input type="text" placeholder="Fullname" class="u" id="name">
             <input type="text" placeholder="Username" class="u" id="username">
             <input type="text" placeholder="Email" class="u" id="email">
@@ -76,7 +77,9 @@
                     contentType: 'application/json',
                     dataType: 'json',
                     success: function (msg) {
-                        console.log(msg);
+                        console.log(msg.msg);
+                        $(".response").append("<b>"+msg.msg+"</b>");
+
                     },
                     error: function (err) {
                         console.log(err);
