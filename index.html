@@ -7,7 +7,11 @@
         integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="Assets/css/styles.css">
+    <!-- <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script> -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 
     <!-- <script type="text/javascript" src="assets/js/lib/jquery-2.2.4.min.js"></script> -->
     <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
@@ -53,55 +57,65 @@
         </div> -->
     </div>
     <!-- <script src="Assets/js/index.js"></script> -->
-    <script>
-        let ob = {}
 
-        $(document).ready(function () {
-            $(".b").click(function () {
-                ob.username = document.getElementById("name").value;
-                ob.password = document.getElementById("password").value;
-                //console.log(ob)
-                console.log(JSON.stringify(ob))
 
-                $.ajax({
-                    url: 'https://stark-retreat-48003.herokuapp.com/login',
-                    type: 'POST',
-                    data: JSON.stringify(ob),
-                    async: "true",
-                    crossDomain: true,
-                    crossOrigin: true,
-                    dataType: 'json',
-                    headers: {
-                        "accept": "application/json",
-                        "Access-Control-Allow-Origin": "*"
-                    },
-                    contentType: 'application/json;',
-                    success: function (response) {
-                        console.log("Inside success")
-                        // let resp = JSON.parse(response)
-                        // console.log(resp.status);
-                        console.log(response)
-                        if(response.property === "success"){
-                            //way to store token
-                            alert("You are now redirected to the profile page");
-                            window.location = "https://stark-retreat-48003.herokuapp.com/view_profile";
-                        }
-                        else{
-                            alert(response.property);
-                        }
-                    },
-                    error: function (err) {
-                        console.log("ERROR");
-                        console.log(err)
-                    }
-                });
-                // $.ajaxSetup({
-                //     crossOrigin: true
-                // })
-            });
+    <script src="Assets/js/index.js">
+        // let ob = {}
 
-        });
-    </script>
+        // let token = Cookies.get("_ga");
+        // console.log(token);
+
+    //     $(document).ready(function () {
+    //         //alert($.cookie("_ga"));
+    //         $(".b").click(function () {
+    //             ob.username = document.getElementById("name").value;
+    //             ob.password = document.getElementById("password").value;
+    //             //ob.token = token;
+    //             //console.log(ob)
+    //             console.log(JSON.stringify(ob))
+    //             console.log(document.cookie)
+
+    //             $.ajax({
+    //                 url: 'https://stark-retreat-48003.herokuapp.com/login',
+    //                 type: 'POST',
+    //                 data: JSON.stringify(ob),
+    //                 async: "true",
+    //                 crossDomain: true,
+    //                 crossOrigin: true,
+    //                 dataType: 'json',
+    //                 headers: {
+    //                     "accept": "application/json",
+    //                     "Access-Control-Allow-Origin": "*"
+    //                 },
+    //                 contentType: 'application/json',
+    //                 success: function (response) {
+    //                     console.log("Inside success")
+    //                     // let resp = JSON.parse(response)
+    //                     // console.log(resp.status);
+    //                     console.log(response)
+    //                     if (response.property === "success") {
+    //                         //way to store token
+    //                         let token = response.token
+
+    //                         console.log(token)
+    //                         //alert("You are now redirected to the profile page");
+    //                         window.location = "profile.html";
+    //                     } else {
+    //                         alert(response.property);
+    //                     }
+    //                 },
+    //                 error: function (err) {
+    //                     console.log("ERROR");
+    //                     console.log(err)
+    //                 }
+    //             });
+    //             // $.ajaxSetup({
+    //             //     crossOrigin: true
+    //             // })
+    //         });
+
+    //     });
+    // </script>
     <!-- <script type="text/javascript" src="js/jquery.ajax-cross-origin.min.js"></script> -->
 </body>
 
