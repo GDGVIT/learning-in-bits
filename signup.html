@@ -51,9 +51,9 @@
 
         </div>
     </div>
-    <script src="Assets/js/index.js"></script>
+    <!-- <script src="Assets/js/index.js"></script> -->
     <script>
-        let ob2 = {
+        let ob = {
             fullname: undefined,
             username: undefined,
             email: undefined,
@@ -73,16 +73,16 @@
                 $.ajax({
                     url: 'https://stark-retreat-48003.herokuapp.com/signup',
                     type: 'POST',
-                    data: JSON.stringify(ob2),
+                    data: JSON.stringify(ob),
                     contentType: 'application/json',
                     dataType: 'json',
                     success: function (msg) {
                         console.log(msg.msg);
-                        $(".response").append("<b>"+msg.msg+"</b>");
+                        $(".response").append("<b>" + msg.msg + "</b>");
 
-                        if(msg.property==="success"){
-                             window.location = 'index.html';
-                         }
+                        if (msg.property === "success") {
+                            window.location = 'index.html';
+                        }
 
                     },
                     error: function (err) {

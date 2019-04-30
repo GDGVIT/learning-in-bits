@@ -9,6 +9,9 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
 		integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 	<script type="text/javascript" src="assets/js/lib/jquery-2.2.4.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="profile.css">
 </head>
@@ -37,7 +40,7 @@
 			<div class="details">
 				<i class='fa fa-pen'></i>
 				<div>
-					<p class="name">Full Name</p>
+					<p class="name" id="name"></p>
 					<div class="edit">
 						<input type="text" placeholder="" id="fullname">
 					</div>
@@ -45,7 +48,7 @@
 
 				</div>
 				<div>
-					<p class="email">Email</p>
+					<p class="email" id="email"></p>
 					<div class="edit">
 						<input type="text" placeholder="" id="email">
 					</div>
@@ -56,13 +59,13 @@
 				<div>
 					<p class="password" style="visibility:hidden;">Password</p>
 					<div class="edit">
-						<input type="text" placeholder="Confirm password" id="confirmpass">
+						<input type="password" placeholder="Confirm password" id="confirmpass">
 					</div>
 					<div class="edit">
-						<input type="text" placeholder="New password" id="newpass">
+						<input type="password" placeholder="New password" id="newpass">
 					</div>
 					<div class="edit_last">
-						<input type="text" placeholder="Confirm new password" id="confirmnewpass">
+						<input type="password" placeholder="Confirm new password" id="confirmnewpass">
 					</div>
 
 					<p class="subscript" style="display:none;">Password</p>
@@ -71,100 +74,124 @@
 				</div>
 				<div>
 					<a href="quotepage.html" style="text-decoration: none">
-						<p class="interests"> Tag 1, Tag 2, Tag 3, Tag 4, Tag 5, Tag 6</p>
+						<p class="interests" id="tags"></p>
 						<p class="subscript">Interests</p>
 					</a>
 				</div>
 
-				<button class="bt"> Log Out </button>
+				<a href="index.html" style="text-decoration: none">
+					<button class="bt"> Log Out </button>
+				</a>
 			</div>
 		</div>
 
 	</div>
 
 	<script src="profile.js"></script>
-	<script src="Assets/js/index.js"></script>
+	<!-- <script src="Assets/js/index.js"></script> -->
 	<script>
-		//let ob = {}
-		// $(document).ready(function () {
+		let ob = {}
+		$(document).ready(function () {
 			//Ajax to pass token as page loads
-			// $.ajax({
-			// 	url: 'https://stark-retreat-48003.herokuapp.com/view_profile',
-			// 	type: 'POST',
-			// 	data: JSON.stringify({
-			// 		"token": ""
-			// 	}),
-			// 	contentType: 'application/json',
-			// 	dataType: 'json',
-			// 	success: (msg) => {
-			// 		console.log(msg)
-			// 	},
-			// 	error: (err) => {
-			// 		console.log(err)
-			// 	}
-			// })
-			// $.ajax({
-			// 	url: 'https://stark-retreat-48003.herokuapp.com/view_profile',
-			// 	method: 'GET',
-			// 	contentType: 'application/JSON',
-			// 	success: function (msg) {
-			// 		console.log(msg)
-			// 	},
-			// 	error: function (err) {
-			// 		console.log(err)
-			// 	}
-			// })
+			$.ajax({
+				url: 'https://stark-retreat-48003.herokuapp.com/view_profile',
+				type: 'POST',
+				data: JSON.stringify({
+					"token": Cookies.get("token")
+				}),
+				contentType: 'application/json',
+				dataType: 'json',
+				crossDomain: true,
+				crossOrigin: true,
+				headers: {
+					"accept": "application/json",
+					"Access-Control-Allow-Origin": "*"
+				},
+				success: (msg) => {
+					console.log(msg)
+					console.log(document.cookie)
+					$("#name").append(msg.fullname)
+					$("#email").append(msg.email)
+					$("tags").append(msg.tags)
+				},
+				error: (err) => {
+					console.log(err)
+				}
+			})
+			$.ajax({
+				url: 'https://stark-retreat-48003.herokuapp.com/view_profile',
+				method: 'GET',
+				contentType: 'application/JSON',
+				success: function (msg) {
+					console.log(msg)
+				},
+				error: function (err) {
+					console.log(err)
+				}
+			})
 
-			// $(".details").on("click", ".fa-check", function (e) {
-			// 	ob.token = ""
-			// 	ob.fullname = document.getElementById("fullname").value;
-			// 	ob.email = document.getElementById("email").value;
-			// 	ob.password = document.getElementById("confirmpass").value;
-			// 	ob.new_password = document.getElementById("newpass").value;
-			// 	ob.confirm_new_password = document.getElementById("confirmnewpass").value;
+			$(".details").on("click", ".fa-check", function (e) {
+				ob.token = Cookies.get("token")
+				ob.fullname = document.getElementById("fullname").value;
+				ob.email = document.getElementById("email").value;
+				ob.password = document.getElementById("confirmpass").value;
+				ob.new_password = document.getElementById("newpass").value;
+				ob.confirm_new_password = document.getElementById("confirmnewpass").value;
 
-			// 	console.log(JSON.stringify(ob))
-			// 	$.ajax({
-			// 		url: 'https://stark-retreat-48003.herokuapp.com/edit_profile',
-			// 		type: 'POST',
-			// 		data: JSON.stringify(ob),
-			// 		contentType: 'application/json',
-			// 		success: function (msg) {
-			// 			console.log(msg)
-			// 		},
-			// 		error: function (err) {
-			// 			console.log(err)
-			// 		}
+				console.log(JSON.stringify(ob))
+				$.ajax({
+					url: 'https://stark-retreat-48003.herokuapp.com/edit_profile',
+					type: 'POST',
+					data: JSON.stringify(ob),
+					crossDomain: true,
+					crossOrigin: true,
+					headers: {
+						"accept": "application/json",
+						"Access-Control-Allow-Origin": "*"
+					},
+					contentType: 'application/json',
+					success: function (msg) {
+						console.log(msg)
+						$("#name").append(msg.fullname)
+						$("#email").append(msg.email)
+						console.log(document.cookie)
 
-			// 	})
+					},
+					error: function (err) {
+						console.log(err)
+					}
 
-			// 	//forgot password
-			// 	$.ajax({
-			// 		url: 'https://stark-retreat-48003.herokuapp.com/edit_profile',
-			// 		type: 'POST',
-			// 		data: JSON.stringify({
-			// 			"username": document.getElementById("fullname").value,
-			// 			"password": document.getElementById("confirmpass").value,
-			// 			"new_password": document.getElementById("newpass").value,
-			// 			"confirm_new_password": document.getElementById("confirmnewpass")
-			// 				.value
+				})
 
-			// 		}),
-			// 		contentType: 'application/json',
-			// 		success: function (msg) {
-			// 			console.log(msg)
-			// 		},
-			// 		error: function (err) {
-			// 			console.log(err)
-			// 		}
+				//forgot password
+				$.ajax({
+					url: 'https://stark-retreat-48003.herokuapp.com/edit_profile',
+					type: 'POST',
+					data: JSON.stringify({
+						"username": document.getElementById("fullname").value,
+						"password": document.getElementById("confirmpass").value,
+						"new_password": document.getElementById("newpass").value,
+						"confirm_new_password": document.getElementById("confirmnewpass")
+							.value
 
-			// 	})
+					}),
+					crossDomain: true,
+					crossOrigin: true,
+					headers: {
+						"accept": "application/json",
+						"Access-Control-Allow-Origin": "*"
+					},
+					contentType: 'application/json',
+					success: function (msg) {
+						console.log(msg)
+					},
+					error: function (err) {
+						console.log(err)
+					}
 
-
-
-
-			// })
-		// })
+				})
+			})
+		})
 	</script>
 
 </body>

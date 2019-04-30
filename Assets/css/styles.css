@@ -76,6 +76,11 @@ body{
     right:15vw;
     /* display:none; */
 }
+.response {
+    font-size: .8em;
+    color: #6e1ae6;
+    text-align: center;
+}
 /* .signup{
     position: relative;
     top:15vh;

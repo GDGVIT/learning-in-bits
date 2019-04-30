@@ -41,16 +41,10 @@ $(document).ready(function () {
                     token = response.token
                     alert(token)
 
-                    //console.log(token)
-                    //alert("You are now redirected to the profile page");
-                    function test() {
-                        alert(token)
-                    }
+
                     setTimeout(function () {
-                        window.location = "profile.html";
-                        window.onload = test;
-
-
+                        profile(token)
+                        // window.location = "profile.html";
                     }, 2000);
 
                 } else {
@@ -65,81 +59,81 @@ $(document).ready(function () {
 
     });
 
-    obt.token = token
-    $.ajax({
-        url: 'https://stark-retreat-48003.herokuapp.com/view_profile',
-        type: 'POST',
-        data: JSON.stringify(obt),
-        contentType: 'application/json',
-        dataType: 'json',
-        success: (msg) => {
-            console.log(msg)
-            alert(token)
-        },
-        error: (err) => {
-            console.log(err)
-        }
-    })
-    $.ajax({
-        url: 'https://stark-retreat-48003.herokuapp.com/view_profile',
-        method: 'GET',
-        contentType: 'application/JSON',
-        success: function (msg) {
-            console.log(msg)
-        },
-        error: function (err) {
-            console.log(err)
-        }
-    })
-
-    $(".details").on("click", ".fa-check", function (e) {
-        ob1.token = token
-        ob1.fullname = document.getElementById("fullname").value;
-        ob1.email = document.getElementById("email").value;
-        ob1.password = document.getElementById("confirmpass").value;
-        ob1.new_password = document.getElementById("newpass").value;
-        ob1.confirm_new_password = document.getElementById("confirmnewpass").value;
-
-        console.log(JSON.stringify(ob1))
+    function profile(token) {
+        obt.token = token
+        alert('On new page sending request')
         $.ajax({
-            url: 'https://stark-retreat-48003.herokuapp.com/edit_profile',
+            url: 'https://stark-retreat-48003.herokuapp.com/view_profile',
             type: 'POST',
-            data: JSON.stringify(ob1),
+            data: JSON.stringify(obt),
             contentType: 'application/json',
+            dataType: 'json',
+            success: (msg) => {
+                window.location = "profile.html"
+                alert('inside success')
+                console.log(msg)
+                // alert(token)
+            },
+            error: (err) => {
+                console.log(err)
+            }
+        })
+        $.ajax({
+            url: 'https://stark-retreat-48003.herokuapp.com/view_profile',
+            method: 'GET',
+            contentType: 'application/JSON',
             success: function (msg) {
                 console.log(msg)
             },
             error: function (err) {
                 console.log(err)
             }
-
         })
 
-        //forgot password
-        $.ajax({
-            url: 'https://stark-retreat-48003.herokuapp.com/edit_profile',
-            type: 'POST',
-            data: JSON.stringify({
-                "username": document.getElementById("fullname").value,
-                "password": document.getElementById("confirmpass").value,
-                "new_password": document.getElementById("newpass").value,
-                "confirm_new_password": document.getElementById("confirmnewpass")
-                    .value
+        $(".details").on("click", ".fa-check", function (e) {
+            ob1.token = token
+            ob1.fullname = document.getElementById("fullname").value;
+            ob1.email = document.getElementById("email").value;
+            ob1.password = document.getElementById("confirmpass").value;
+            ob1.new_password = document.getElementById("newpass").value;
+            ob1.confirm_new_password = document.getElementById("confirmnewpass").value;
 
-            }),
-            contentType: 'application/json',
-            success: function (msg) {
-                console.log(msg)
-            },
-            error: function (err) {
-                console.log(err)
-            }
+            console.log(JSON.stringify(ob1))
+            $.ajax({
+                url: 'https://stark-retreat-48003.herokuapp.com/edit_profile',
+                type: 'POST',
+                data: JSON.stringify(ob1),
+                contentType: 'application/json',
+                success: function (msg) {
+                    console.log(msg)
+                },
+                error: function (err) {
+                    console.log(err)
+                }
 
+            })
+
+            //forgot password
+            $.ajax({
+                url: 'https://stark-retreat-48003.herokuapp.com/edit_profile',
+                type: 'POST',
+                data: JSON.stringify({
+                    "username": document.getElementById("fullname").value,
+                    "password": document.getElementById("confirmpass").value,
+                    "new_password": document.getElementById("newpass").value,
+                    "confirm_new_password": document.getElementById("confirmnewpass")
+                        .value
+
+                }),
+                contentType: 'application/json',
+                success: function (msg) {
+                    console.log(msg)
+                },
+                error: function (err) {
+                    console.log(err)
+                }
+
+            })
         })
-
-
-
-
-    })
-
+    }
 });

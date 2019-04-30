@@ -7,6 +7,9 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css"
 		integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script> 
 	<script type="text/javascript" src="assets/js/lib/jquery-2.2.4.min.js"></script>
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
 		integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -56,32 +59,32 @@
 			<div class="row">
 				<div class="col-4 col-sm-2" id="try">
 					<div id="uno">
-						Health<span><i class="fa fa-times"></i></span>
+						<span><i class="fa fa-times"></i></span>
 					</div>
 				</div>
 				<div class="col-4 col-sm-2">
 					<div id="dos">
-						Education<span><i class="fa fa-times"></i></span>
+						<span><i class="fa fa-times"></i></span>
 					</div>
 				</div>
 				<div class="col-4 col-sm-2">
 					<div id="tres">
-						Fitness<span><i class="fa fa-times"></i></span>
+						<span><i class="fa fa-times"></i></span>
 					</div>
 				</div>
 				<div class="col-4 col-sm-2">
 					<div id="quad">
-						Potions<span><i class="fa fa-times"></i></span>
+						<span><i class="fa fa-times"></i></span>
 					</div>
 				</div>
 				<div class="col-4 col-sm-2">
 					<div id="pent">
-						Math<span><i class="fa fa-times"></i></span>
+						<span><i class="fa fa-times"></i></span>
 					</div>
 				</div>
 				<div class="col-4 col-sm-2">
 					<div id="hex">
-						Sports<span><i class="fa fa-times"></i></span>
+						<span><i class="fa fa-times"></i></span>
 					</div>
 				</div>
 			</div>
@@ -119,9 +122,15 @@
 				url: 'https://stark-retreat-48003.herokuapp.com/get-quote',
 				type: 'POST',
 				data: JSON.stringify({
-					"token": ""
+					"token": Cookies.get("token")
 				}),
 				contentType: 'application/json',
+				crossDomain: true,
+				crossOrigin: true,
+				headers: {
+					"accept": "application/json",
+					"Access-Control-Allow-Origin": "*"
+				},
 				dataType: 'json',
 				success: (msg) => {
 					console.log(msg)
@@ -135,7 +144,7 @@
 				if (e.which == 13) {
 					ob.tag = document.getElementById("addtag").value;
 					ob.tag_command = "add";
-					ob.token = ""
+					ob.token = Cookies.get("token")
 					console.log(JSON.stringify(ob))
 					console.log('Reached first Ajax')
 					$.ajax({
@@ -143,14 +152,21 @@
 						type: 'POST',
 						data: JSON.stringify(ob),
 						contentType: 'application/JSON',
+						crossDomain: true,
+						crossOrigin: true,
+						headers: {
+							"accept": "application/json",
+							"Access-Control-Allow-Origin": "*"
+						},
 						dataType: 'json',
 						success: (msg) => {
 							console.log('first ajax successful')
+							console.log(msg)
 							// displayQuotes(id)
 						},
 						error: (err) => {
 							console.log('first ajax error')
-							console.log(error.responseJSON);
+							console.log(err.responseJSON);
 
 						}
 					})
@@ -164,9 +180,15 @@
 					data: JSON.stringify({
 						"tag": document.getElementById(this).value,
 						"tag_command": "delete",
-						"token": ""
+						"token": Cookies.get("token")
 					}),
 					contentType: 'application/json',
+					crossDomain: true,
+					crossOrigin: true,
+					headers: {
+						"accept": "application/json",
+						"Access-Control-Allow-Origin": "*"
+					},
 					dataType: 'json',
 					success: (msg) => {
 						console.log(msg)
