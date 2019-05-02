@@ -162,6 +162,7 @@
 						success: (msg) => {
 							console.log('first ajax successful')
 							console.log(msg)
+							$("#two").append(ob.tag)
 							// displayQuotes(id)
 						},
 						error: (err) => {
