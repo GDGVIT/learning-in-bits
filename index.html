@@ -97,7 +97,10 @@
 
                             console.log(token)
                             //alert("You are now redirected to the profile page");
-                            window.location = "profile.html";
+                            setTimeout(function () {
+                                window.location = "profile.html";
+                            }, 2000);
+
                         } else {
                             console.log(response.msg);
                         }
