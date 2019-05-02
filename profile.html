@@ -97,7 +97,7 @@
 				url: 'https://stark-retreat-48003.herokuapp.com/view_profile',
 				type: 'POST',
 				data: JSON.stringify({
-					"token": Cookies.get("token")
+					//"token": Cookies.get("token")
 				}),
 				contentType: 'application/json',
 				dataType: 'json',
@@ -108,15 +108,14 @@
 					"Access-Control-Allow-Origin": "*"
 				},
 				success: (msg) => {
-					console.log('yeet')
+
 					console.log(msg)
-					console.log(document.cookie)
+					//console.log(document.cookie)
 					$("#name").append(msg.fullname)
 					$("#email").append(msg.email)
 					$("#tags").append(msg.tags)
 				},
 				error: (err) => {
-					console.log('feed me')
 					console.log(err)
 				}
 			})
@@ -133,7 +132,7 @@
 			// })
 
 			$(".details").on("click", ".fa-check", function (e) {
-				ob.token = Cookies.get("token")
+				//ob.token = Cookies.get("token")
 				ob.fullname = document.getElementById("fullname").value;
 				ob.email = document.getElementById("email").value;
 				ob.password = document.getElementById("confirmpass").value;
@@ -174,7 +173,8 @@
 						"username": document.getElementById("fullname").value,
 						"password": document.getElementById("confirmpass").value,
 						"new_password": document.getElementById("newpass").value,
-						"confirm_new_password": document.getElementById("confirmnewpass").value
+						"confirm_new_password": document.getElementById("confirmnewpass")
+							.value
 
 					}),
 					crossDomain: true,

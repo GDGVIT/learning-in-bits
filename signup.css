@@ -107,21 +107,18 @@ button:focus {
 .lg {
     text-align: center;
     position: relative;
-    max-width: 150px;
-    min-width: 130px;
+    max-width: 120px;
+    min-width: 100px;
     max-height: auto;
     width: 15vw;
     height: 10vh;
     font-family: Quicksand;
-    font-size: 35px;
+    font-size: 30px;
     font-weight: bold;
-    font-style: normal;
-    font-stretch: normal;
     line-height: 1.26;
     letter-spacing: 0.4px;
     color: #6e1ae6;
     margin: auto auto;
-    padding: 0;
 }
 
 .u {
@@ -193,6 +190,11 @@ button:focus {
     left:50%; */
     /* margin:2vw 5vh; */
     text-align: center;
+
+}
+
+a:hover {
+    text-decoration: none;
 }
 
 .response {
@@ -212,26 +214,28 @@ button:focus {
     }
 
     .signup {
-        width: 50vw;
+        width: 30vw;
         height: auto;
         position: absolute;
-        left: 50%;
-        top: 50%;
+        left: 40%;
+        top: 55%;
         transform: translate(-50%, -50%);
+        padding: 0;
 
     }
 
     .lg {
-        font-size: 25px;
-        left: -2vw;
+        font-size: 1.4em;
+        left: 3vw;
+        top: 3.5vh;
 
     }
 
     .u,
     .p {
         width: 15vw;
-        font-size: 12px;
-        margin: 1vh 1vh;
+        font-size: 0.7em;
+        margin: 0.7vh 0.7vh;
     }
 
     .quote {
