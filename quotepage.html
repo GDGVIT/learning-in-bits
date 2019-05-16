@@ -6,7 +6,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css"
 		integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
-		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, height=device-height" />
+	<meta name="viewport"
+		content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, height=device-height" />
 	<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
 	<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -126,7 +127,7 @@
 				},
 				dataType: 'json',
 				success: (msg) => {
-					console.log(msg)
+					// console.log(msg)
 					$('#q').html(' ');
 					$('#q').append(msg.quote);
 				},
@@ -136,6 +137,8 @@
 			})
 			//Ajax to add tag on enter click
 			$("#addtag").keypress((e) => {
+				// console.log($(this).text())
+				// $(this).val('');
 				if (e.which == 13) {
 					ob.tag = document.getElementById("addtag").value;
 					if ($('#uno').hasClass('hide')) {
@@ -152,7 +155,7 @@
 						$('#hex').prepend(ob.tag).removeClass('hide');
 					} else {
 						$('#nomoretags').removeClass('hide');
-						console.log('NO MORE TAGS');
+						// console.log('NO MORE TAGS');
 					}
 
 					ob.tag_command = "add";
@@ -172,13 +175,13 @@
 						},
 						dataType: 'json',
 						success: (msg) => {
-							console.log('first ajax successful')
+							// console.log('first ajax successful')
 							console.log(msg)
 							// $("#two").append(ob.tag)
 							// displayQuotes(id)
 						},
 						error: (err) => {
-							console.log('first ajax error')
+							// console.log('first ajax error')
 							console.log(err.responseJSON);
 
 						}

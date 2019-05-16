@@ -6,7 +6,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css"
         integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, height=device-height" />
+    <meta name="viewport"
+        content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, height=device-height" />
     <link rel="stylesheet" type="text/css" href="signup.css">
     <script type="text/javascript" src="assets/js/lib/jquery-2.2.4.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
@@ -30,13 +31,6 @@
             <p class="qh">"If you can`t do great things, do small things in a great way."</p>
             <h3 class="qf"> -Napolean Hill</h3>
         </div>
-        <!-- <div class="login">
-            <h1 class="lg"> Log In </h1>
-            <input type="text" placeholder="Username" class ="u">
-            <input type ="password" placeholder="Password" class="p">
-            <button class="b"> Log In <img src="Assets/Arrow Symbol.svg " class="arrow"></button>
-            <h6 class="new"> New User?    <span class="sign">      Sign Up! </span></h6>
-        </div> -->
         <div class="signup">
             <h1 class="lg"> Sign Up </h1>
             <h6 class="response"></h6>
@@ -54,47 +48,121 @@
     </div>
     <!-- <script src="Assets/js/index.js"></script> -->
     <script>
-        let ob = {
-            fullname: undefined,
-            username: undefined,
-            email: undefined,
-            password: undefined,
-            cpassword: undefined
-        }
         $(document).ready(function () {
             $(".b").click(function () {
-                ob.username = document.getElementById("username").value;
-                ob.password = document.getElementById("password").value;
-                ob.confirm_password = document.getElementById("cpassword").value;
-                ob.tags = ""
-                ob.fullname = document.getElementById("name").value;
-                ob.email = document.getElementById("email").value;
+                    let ob = {}
+                    let password = document.getElementById("password").value;
+                    let confirmPassword = document.getElementById("cpassword").value;
+                    let username = document.getElementById("username").value;
+                    let email = document.getElementById("email").value;
+                    let fullName = document.getElementById("name").value;
+
+                    ob.username = username;
+                    ob.password = password;
+                    ob.confirm_password = confirmPassword;
+                    ob.tags = ""
+                    ob.fullname = fullName;
+                    ob.email = email;
 
 
-                $.ajax({
-                    url: 'https://stark-retreat-48003.herokuapp.com/signup',
-                    type: 'POST',
-                    data: JSON.stringify(ob),
-                    contentType: 'application/json',
-                    dataType: 'json',
-                    success: function (msg) {
-                        console.log(msg.msg);
-                        $('.response').html(" ");
-                        $(".response").append("<b>" + msg.msg + "</b>");
-
-                        if (msg.property === "success") {
-                            window.location = 'index.html';
+                    function emailVerify(email) {
+                        let re =
+                            /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                        if (re.test(email)) {
+                            return true
+                        } else {
+                            return false
                         }
-
-                    },
-                    error: function (err) {
-                        console.log(err);
                     }
 
-                });
-            });
+                    function allValidation() {
+                        if (fullName.length > 0) {
+                            if (emailVerify(email)) {
+                                if (username.length > 0) {
+                                    if (password.length > 0) {
+                                        if (password == confirmPassword) {
+                                            $('.response').html(" ");
+                                            $(".response").append("<b>Sign-up successful</b>");
+                                            // console.log("All validations Passed")
+                                            return true
+                                        } else {
+                                            $('.response').html(" ");
+                                            $(".response").append("<b>Please check the password again</b>");
+                                            // console.log("Password and confirm password field do not match")
+                                            return false
+                                        }
+                                    } else {
+                                        $('.response').html(" ");
+                                        $(".response").append("<b>Password field cannot be empty</b>");
+                                        // console.log("Password -> Empty")
+                                    }
+                                } else {
+                                    $('.response').html(" ");
+                                    $(".response").append("<b>Username field cannot be empty</b>");
+                                    // console.log("Username -> Empty")
+                                    return false
+                                }
+                            } else {
+                                $('.response').html(" ");
+                                $(".response").append("<b>Invalid email</b>");
+                                // console.log("Email -> not valid")
+                                return false
+                            }
+                        } else {
+                            $('.response').html(" ");
+                            $(".response").append("<b>Fullname field cannot be empty</b>");
+                            // console.log("Name -> Empty")
+                            return false
+                        }
+                    }
 
-        });
+
+                    if (allValidation()) {
+                        // ajax call here 
+
+
+                            $.ajax({
+                                url: 'https://stark-retreat-48003.herokuapp.com/signup',
+                                type: 'POST',
+                                data: JSON.stringify(ob),
+                                contentType: 'application/json',
+                                dataType: 'json',
+                                success: function (msg) {
+                                    console.log(msg.msg);
+                                    $('.response').html(" ");
+                                    $(".response").append("<b>" + msg.msg + "</b>");
+
+                                    if (msg.property === "success") {
+                                        window.location = 'index.html';
+                                    }
+
+                                },
+                                error: function (err) {
+                                    console.log(err);
+                                }
+
+                            });
+                        };
+                    });
+                });
+
+                        
+                
+                
+
+
+
+
+
+
+
+                        // let ob = {
+                        //     fullname: undefined,
+                        //     username: undefined,
+                        //     email: undefined,
+                        //     password: undefined,
+                        //     cpassword: undefined
+                        // }
     </script>
 </body>
 

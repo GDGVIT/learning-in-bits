@@ -128,18 +128,6 @@
 					console.log(err)
 				}
 			})
-			// $.ajax({
-			// 	url: 'https://stark-retreat-48003.herokuapp.com/view_profile',
-			// 	method: 'GET',
-			// 	contentType: 'application/JSON',
-			// 	success: function (msg) {
-			// 		console.log(msg)
-			// 	},
-			// 	error: function (err) {
-			// 		console.log(err)
-			// 	}
-			// })
-
 			$(".details").on("click", ".fa-check", function (e) {
 				// ob.token = Cookies.get("token")
 				// ob.fullname = document.getElementById("fullname").value
@@ -147,14 +135,6 @@
 				// ob.password = document.getElementById("confirmpass").value;
 				// ob.new_password = document.getElementById("newpass").value;
 				// ob.confirm_new_password = document.getElementById("confirmnewpass").value;
-
-				// console.log(JSON.stringify(ob))
-				// update = JSON.stringify(ob)
-				// console.log(ob.email);
-				// $("name").html(" ");
-				// $("#email").html(" ");
-				// $("#name").append(ob.fullname);
-				// $("#email").append(ob.email);
 
 				$.ajax({
 					url: 'https://stark-retreat-48003.herokuapp.com/edit_profile',
@@ -172,12 +152,12 @@
 					},
 					contentType: 'application/json',
 					success: function (msg) {
-						console.log('Updated')
+						// console.log('Updated')
 						console.log(msg)
 						// document.getElementById('name').innerHTML = update.fullname;
 						// console.log(msg.fullname);
 
-						console.log(document.cookie)
+						// console.log(document.cookie)
 
 					},
 					error: function (err) {
