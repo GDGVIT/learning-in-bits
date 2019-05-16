@@ -62,6 +62,7 @@
 
     <script>
         let ob = {}
+        Cookies.get('Learning-in-bits');
 
         $(document).ready(function () {
 
@@ -84,18 +85,19 @@
                         "accept": "application/json",
                         "Access-Control-Allow-Origin": "*"
                     },
+                    credentials:'same-origin',
                     contentType: 'application/json',
                     success: function (response) {
+                        $('.response').html(" ");
                         $(".response").append("<b>" + response.msg + "</b>");
                         // let resp = JSON.parse(response)
                         // console.log(resp.status);
                         console.log(response)
                         if (response.property === "success") {
                             //way to store token
-                            //let token = response.token
-                            //document.cookie = "token =" + token;
-
-                           // console.log(token)
+                            let token = response.token
+                            document.cookie = "token =" + token;
+                            console.log(token)
                             //alert("You are now redirected to the profile page");
                             setTimeout(function () {
                                 window.location = "profile.html";

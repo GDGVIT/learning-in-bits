@@ -58,36 +58,37 @@
 		<div class="container" id="two">
 			<div class="row">
 				<div class="col-4 col-sm-2" id="try">
-					<div id="uno">
-						<span><i class="fa fa-times"></i></span>
+					<div id="uno" class="hide">
+						<span>   <i class="fa fa-times"></i></span>
 					</div>
 				</div>
 				<div class="col-4 col-sm-2">
-					<div id="dos">
-						<span><i class="fa fa-times"></i></span>
+					<div id="dos" class="hide">
+						<span>   <i class="fa fa-times"></i></span>
 					</div>
 				</div>
 				<div class="col-4 col-sm-2">
-					<div id="tres">
-						<span><i class="fa fa-times"></i></span>
+					<div id="tres" class="hide">
+						<span>   <i class="fa fa-times"></i></span>
 					</div>
 				</div>
 				<div class="col-4 col-sm-2">
-					<div id="quad">
-						<span><i class="fa fa-times"></i></span>
+					<div id="quad" class="hide">
+						<span>   <i class="fa fa-times"></i></span>
 					</div>
 				</div>
 				<div class="col-4 col-sm-2">
-					<div id="pent">
-						<span><i class="fa fa-times"></i></span>
+					<div id="pent" class="hide">
+						<span>   <i class="fa fa-times"></i></span>
 					</div>
 				</div>
 				<div class="col-4 col-sm-2">
-					<div id="hex">
-						<span><i class="fa fa-times"></i></span>
+					<div id="hex" class="hide">
+						<span>   <i class="fa fa-times"></i></span>
 					</div>
 				</div>
 			</div>
+			<p class="hide" id="nomoretags">CAN ADD ONLY 6 TAGS</p>
 		</div>
 		<div class="container" id="three">
 			<div class="row">
@@ -105,21 +106,12 @@
 
 	</div>
 
-
-
-
-	<script src="Assets/js/quotepage.js"></script>
-	<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js"
-		integrity="sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp" crossorigin="anonymous">
-	</script>
-
-	<script>
+    <script>
 		let ob = {}
 		$(document).ready(function () {
 			//Ajax to send the token as the page loads
 			$.ajax({
-				url: 'https://stark-retreat-48003.herokuapp.com/get-quote',
+				url: 'https://stark-retreat-48003.herokuapp.com/get_quote',
 				type: 'POST',
 				data: JSON.stringify({
 					"token": Cookies.get("token")
@@ -134,6 +126,8 @@
 				dataType: 'json',
 				success: (msg) => {
 					console.log(msg)
+					$('#q').html(' ');
+					$('#q').append(msg.quote);
 				},
 				error: (err) => {
 					console.log(err)
@@ -143,6 +137,29 @@
 			$("#addtag").keypress((e) => {
 				if (e.which == 13) {
 					ob.tag = document.getElementById("addtag").value;
+					if ($('#uno').hasClass('hide')){
+					$('#uno').append(ob.tag).removeClass('hide');
+					}
+					else if($('#dos').hasClass('hide')){
+						$('#dos').append(ob.tag).removeClass('hide');
+					}
+					else if($('#tres').hasClass('hide')){
+						$('#tres').append(ob.tag).removeClass('hide');
+					}
+					else if($('#quad').hasClass('hide')){
+						$('#quad').append(ob.tag).removeClass('hide');
+					}
+					else if($('#pent').hasClass('hide')){
+						$('#pent').append(ob.tag).removeClass('hide');
+					}
+					else if($('#hex').hasClass('hide')){
+						$('#hex').append(ob.tag).removeClass('hide');
+					}
+					else{
+						$('#nomoretags').removeClass('hide');
+						console.log('NO MORE TAGS');
+					}
+
 					ob.tag_command = "add";
 					ob.token = Cookies.get("token")
 					console.log(JSON.stringify(ob))
@@ -175,6 +192,7 @@
 			})
 			//Deleting tags
 			$("#two").on("click", "span", function (e) {
+				console.log(document.getElementById(this).value);
 				$.ajax({
 					url: 'https://stark-retreat-48003.herokuapp.com/edit_profile',
 					type: 'POST',
@@ -201,6 +219,12 @@
 			})
 		})
 	</script>
+
+<script src="Assets/js/quotepage.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js"
+	integrity="sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp" crossorigin="anonymous">
+</script>
 </body>
 
 </html>

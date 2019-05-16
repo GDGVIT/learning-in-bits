@@ -78,6 +78,7 @@
                     dataType: 'json',
                     success: function (msg) {
                         console.log(msg.msg);
+                        $('.response').html(" ");
                         $(".response").append("<b>" + msg.msg + "</b>");
 
                         if (msg.property === "success") {

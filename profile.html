@@ -97,7 +97,7 @@
 				url: 'https://stark-retreat-48003.herokuapp.com/view_profile',
 				type: 'POST',
 				data: JSON.stringify({
-					//"token": Cookies.get("token")
+					"token": Cookies.get("token")
 				}),
 				contentType: 'application/json',
 				dataType: 'json',
@@ -110,10 +110,14 @@
 				success: (msg) => {
 
 					console.log(msg)
-					//console.log(document.cookie)
+					console.log(document.cookie)
 					$("#name").append(msg.fullname)
 					$("#email").append(msg.email)
-					$("#tags").append(msg.tags)
+					if(msg.tags[0] === "[]"){
+						msg.tags.shift();
+						$("#tags").append(msg.tags+',')
+					}
+					
 				},
 				error: (err) => {
 					console.log(err)
@@ -132,7 +136,7 @@
 			// })
 
 			$(".details").on("click", ".fa-check", function (e) {
-				//ob.token = Cookies.get("token")
+				ob.token = Cookies.get("token")
 				ob.fullname = document.getElementById("fullname").value;
 				ob.email = document.getElementById("email").value;
 				ob.password = document.getElementById("confirmpass").value;
@@ -140,6 +144,7 @@
 				ob.confirm_new_password = document.getElementById("confirmnewpass").value;
 
 				console.log(JSON.stringify(ob))
+				update = JSON.stringify(ob)
 				$.ajax({
 					url: 'https://stark-retreat-48003.herokuapp.com/edit_profile',
 					type: 'POST',
@@ -154,7 +159,9 @@
 					success: function (msg) {
 						console.log('Updated')
 						console.log(msg)
-						$("#name").append(msg.fullname)
+						// document.getElementById('name').innerHTML = update.fullname;
+						console.log(msg.fullname);
+						$("#name").append(msg.fullname);
 						$("#email").append(msg.email)
 						console.log(document.cookie)
 
