@@ -120,7 +120,7 @@ button:focus {
   letter-spacing: 1px;
   text-align: center;
   color: #000000;
-  margin-bottom: 0;
+  margin-bottom: 10px;
 }
 
 .interests {

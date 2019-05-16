@@ -262,3 +262,28 @@ a:hover {
         height: auto;
     }
 }
+@media(max-height:380px){
+    body{
+        background: lightblue;
+    }
+    .img{
+        display: none;
+    }
+    .q2{
+        display: none;
+    }
+    .signup{
+        position: fixed;
+        top:69%;
+        margin-left: 35px;
+        overflow-y: scroll;
+        max-height: 64vh;
+    }
+    .lg{
+        margin-bottom:25px;
+        margin-left: 30px;
+    }
+    .b{
+        height:10vh;
+    }
+}

@@ -41,7 +41,7 @@
             <h6 class="response"></h6>
             <input type="text" placeholder="Username" class="u" id="name">
             <input type="password" placeholder="Password" class="p" id="password">
-            <button class="b" type="submit"> Log In <img src="Assets/Arrow Symbol.svg " class="arrow"></button>
+            <button class="b"> Log In <img src="Assets/Arrow Symbol.svg " class="arrow"></button>
             <a href="signup.html">
                 <h6 class="new"> New User? <span class="sign"> Sign Up! </span></h6>
             </a>
@@ -107,15 +107,31 @@
                         console.log(err)
                     }
                 });
-                // $.ajaxSetup({
-                //     crossOrigin: true
-                // })
             });
 
         });
-        // 
+        var $htmlOrBody = $('html,body'), scrollTopPadding = 8;
+        $('u').focus(function(){
+            var top = $(this).offset().top;
+            $htmlOrBody.scrollTop(top - scrollTopPadding);
+        });
+        
+        // document.body.addEventListener("focus",event => {
+        //     const target = event.target;
+        //     switch(target.tagName){
+        //         case "INPUT":
+        //         case "TEXTAREA":
+        //         case "SELECT":
+        //              document.body.classList.add("keyboard");
+        //     }
+
+        //     },true);
+        //     document.body.addEventListener("blur",() =>{
+        //         document.body.classList.remove("keyboard");
+        //     },true);
+    
     </script>
-    <!-- <script type="text/javascript" src="js/jquery.ajax-cross-origin.min.js"></script> -->
+    
 </body>
 
 </html>

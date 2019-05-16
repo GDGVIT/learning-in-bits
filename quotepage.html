@@ -138,7 +138,7 @@
 			//Ajax to add tag on enter click
 			$("#addtag").keypress((e) => {
 				// console.log($(this).text())
-				// $(this).val('');
+				
 				if (e.which == 13) {
 					ob.tag = document.getElementById("addtag").value;
 					if ($('#uno').hasClass('hide')) {
@@ -157,11 +157,12 @@
 						$('#nomoretags').removeClass('hide');
 						// console.log('NO MORE TAGS');
 					}
+					$('#addtag').val('');
 
 					ob.tag_command = "add";
 					ob.token = Cookies.get("token")
-					console.log(JSON.stringify(ob))
-					console.log('Reached first Ajax')
+					// console.log(JSON.stringify(ob))
+					// console.log('Reached first Ajax')
 					$.ajax({
 						url: 'https://stark-retreat-48003.herokuapp.com/edit_profile',
 						type: 'POST',
