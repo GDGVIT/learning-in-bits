@@ -87,7 +87,7 @@
   min-width: 100px;
   padding: 5px;
   margin: 5px 0;
-  width: 10vw;
+  width: auto;
   height: auto;
   max-height: 52.8px;
   border-radius: 67px;
@@ -102,7 +102,7 @@
   min-width: 100px;
   padding: 5px;
   margin: 5px 0;
-  width: 10vw;
+  width: auto;
   height: auto;
   max-height: 52.8px;
   border-radius: 67px;
@@ -116,7 +116,7 @@
   min-width: 100px;
   padding: 5px;
   margin: 5px 0;
-  width: 10vw;
+  width: auto;
   height: auto;
   max-height: 52.8px;
   border-radius: 67px;
@@ -132,7 +132,7 @@
   min-width: 100px;
   padding: 5px;
   margin: 5px 0;
-  width: 10vw;
+  width: auto;
   height: auto;
   max-height: 52.8px;
   border-radius: 67px;
@@ -147,7 +147,7 @@
   min-width: 100px;
   padding: 5px;
   margin: 5px 0;
-  width: 10vw;
+  width: auto;
   height: auto;
   max-height: 52.8px;
   border-radius: 67px;
@@ -162,7 +162,7 @@
   min-width: 100px;
   padding: 5px;
   margin: 5px 0;
-  width: 10vw;
+  width: auto;
   height: auto;
   max-height: 52.8px;
   border-radius: 67px;
@@ -263,6 +263,7 @@ button:focus {
   #two,
   #addtag {
     font-size: 11px;
+    /* top: 200px; */
   }
   
   .fa-times {
@@ -273,7 +274,7 @@ button:focus {
   #AddTag {
     margin: 5vw -2vw;
     right: 30px;
-    top: 80px;
+    top: 65px;
   }
 
   #addtag {

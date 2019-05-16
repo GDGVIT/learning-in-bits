@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="Assets/css/styles.css">
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, height=device-height" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
@@ -40,30 +41,15 @@
             <h6 class="response"></h6>
             <input type="text" placeholder="Username" class="u" id="name">
             <input type="password" placeholder="Password" class="p" id="password">
-            <button class="b"> Log In <img src="Assets/Arrow Symbol.svg " class="arrow"></button>
+            <button class="b" type="submit"> Log In <img src="Assets/Arrow Symbol.svg " class="arrow"></button>
             <a href="signup.html">
                 <h6 class="new"> New User? <span class="sign"> Sign Up! </span></h6>
             </a>
         </div>
 
-        <!-- <div class="signup">
-            <h1 class="lg"> Sign Up </h1>
-            <input type="text" placeholder="Username" class ="u">
-            <input type="text" placeholder="Email" class="u">
-            <input type ="password" placeholder="Password" class="p">
-            <input type ="password" placeholder="Confirm Password" class="p">
-            <button class="b"> Sign Up <img src="Assets/Arrow Symbol.svg " class="arrow"></button>
-            <h6 class="new"> Already have an account? <span class="sign">  Log In! </span></h6>
-
-        </div> -->
     </div>
-    <!-- <script src="Assets/js/index.js"></script> -->
-
-
     <script>
         let ob = {}
-        Cookies.get('Learning-in-bits');
-
         $(document).ready(function () {
 
             $(".b").click(function () {
@@ -85,7 +71,7 @@
                         "accept": "application/json",
                         "Access-Control-Allow-Origin": "*"
                     },
-                    credentials:'same-origin',
+                    credentials: 'same-origin',
                     contentType: 'application/json',
                     success: function (response) {
                         $('.response').html(" ");

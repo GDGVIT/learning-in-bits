@@ -27,7 +27,11 @@ body {
   margin-left: 30px;
   height: auto;
   border-radius: 100%;
+  /* box-shadow:1px solid #6e1ae6 !important; */
 }
+/* .shadow{
+  box-shadow: 1px solid #6e1ae6;
+} */
 
 .Person1 {
   z-index: 1;
@@ -47,12 +51,17 @@ body {
 
 .details {
   /* background: purple; */
-  width: 25vw;
+  width: 16vw;
   height: 50vh;
   margin: 56px;
-  margin-right: 11vw;
+  /* margin-right: 11vw; */
   padding: 10px;
-  float: right;
+  /* float: right; */
+  /* margin-left: 665px; */
+  position: fixed;
+  left: 47%;
+  top: 55%;
+  transform: translate(-50%,-50%);
   text-align: center;
 }
 
@@ -111,6 +120,7 @@ button:focus {
   letter-spacing: 1px;
   text-align: center;
   color: #000000;
+  margin-bottom: 0;
 }
 
 .interests {
@@ -209,20 +219,25 @@ button:focus {
   }
 
   .Person {
-    margin-left: -10px;
+    /* margin-left: -45px; */
     width: 15vw;
+    position: absolute;
+    bottom: 162px;
+    left: 0;
   }
 
   .bt {
     width: 25vw;
     height: 4vh;
     margin-top: 10px;
-    margin-left: 37px;
+    margin-left: 0;
+    position: absolute;
+    right: 35px;
   }
 
   .interests {
     font-size: 0.8em;
-    margin-left: 30px;
+    margin-left: 0px;
     width: 30vw;
     height: auto;
   }
@@ -246,5 +261,18 @@ button:focus {
     position: absolute;
     right: -40px;
 
+  }
+  .details{
+    margin-top: 60px;
+    width: 45vw;
+    height: 50vh;
+    margin-left: 21px;
+    margin-right: 11vw;
+    padding: 10px;
+    text-align: center;
+  }
+  .edit{
+    width: 20vw;
+    right: 100px;
   }
 }

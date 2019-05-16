@@ -6,10 +6,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css"
 		integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, height=device-height" />
 	<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
 	<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script> 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 	<script type="text/javascript" src="assets/js/lib/jquery-2.2.4.min.js"></script>
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
 		integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -59,32 +60,32 @@
 			<div class="row">
 				<div class="col-4 col-sm-2" id="try">
 					<div id="uno" class="hide">
-						<span>   <i class="fa fa-times"></i></span>
+						<span><i class="fa fa-times"></i></span>
 					</div>
 				</div>
 				<div class="col-4 col-sm-2">
 					<div id="dos" class="hide">
-						<span>   <i class="fa fa-times"></i></span>
+						<span> <i class="fa fa-times"></i></span>
 					</div>
 				</div>
 				<div class="col-4 col-sm-2">
 					<div id="tres" class="hide">
-						<span>   <i class="fa fa-times"></i></span>
+						<span> <i class="fa fa-times"></i></span>
 					</div>
 				</div>
 				<div class="col-4 col-sm-2">
 					<div id="quad" class="hide">
-						<span>   <i class="fa fa-times"></i></span>
+						<span> <i class="fa fa-times"></i></span>
 					</div>
 				</div>
 				<div class="col-4 col-sm-2">
 					<div id="pent" class="hide">
-						<span>   <i class="fa fa-times"></i></span>
+						<span> <i class="fa fa-times"></i></span>
 					</div>
 				</div>
 				<div class="col-4 col-sm-2">
 					<div id="hex" class="hide">
-						<span>   <i class="fa fa-times"></i></span>
+						<span> <i class="fa fa-times"></i></span>
 					</div>
 				</div>
 			</div>
@@ -106,7 +107,7 @@
 
 	</div>
 
-    <script>
+	<script>
 		let ob = {}
 		$(document).ready(function () {
 			//Ajax to send the token as the page loads
@@ -137,25 +138,19 @@
 			$("#addtag").keypress((e) => {
 				if (e.which == 13) {
 					ob.tag = document.getElementById("addtag").value;
-					if ($('#uno').hasClass('hide')){
-					$('#uno').append(ob.tag).removeClass('hide');
-					}
-					else if($('#dos').hasClass('hide')){
-						$('#dos').append(ob.tag).removeClass('hide');
-					}
-					else if($('#tres').hasClass('hide')){
-						$('#tres').append(ob.tag).removeClass('hide');
-					}
-					else if($('#quad').hasClass('hide')){
-						$('#quad').append(ob.tag).removeClass('hide');
-					}
-					else if($('#pent').hasClass('hide')){
-						$('#pent').append(ob.tag).removeClass('hide');
-					}
-					else if($('#hex').hasClass('hide')){
-						$('#hex').append(ob.tag).removeClass('hide');
-					}
-					else{
+					if ($('#uno').hasClass('hide')) {
+						$('#uno').prepend(ob.tag).removeClass('hide');
+					} else if ($('#dos').hasClass('hide')) {
+						$('#dos').prepend(ob.tag).removeClass('hide');
+					} else if ($('#tres').hasClass('hide')) {
+						$('#tres').prepend(ob.tag).removeClass('hide');
+					} else if ($('#quad').hasClass('hide')) {
+						$('#quad').prepend(ob.tag).removeClass('hide');
+					} else if ($('#pent').hasClass('hide')) {
+						$('#pent').prepend(ob.tag).removeClass('hide');
+					} else if ($('#hex').hasClass('hide')) {
+						$('#hex').prepend(ob.tag).removeClass('hide');
+					} else {
 						$('#nomoretags').removeClass('hide');
 						console.log('NO MORE TAGS');
 					}
@@ -179,7 +174,7 @@
 						success: (msg) => {
 							console.log('first ajax successful')
 							console.log(msg)
-							$("#two").append(ob.tag)
+							// $("#two").append(ob.tag)
 							// displayQuotes(id)
 						},
 						error: (err) => {
@@ -192,12 +187,12 @@
 			})
 			//Deleting tags
 			$("#two").on("click", "span", function (e) {
-				console.log(document.getElementById(this).value);
+				console.log(this);
 				$.ajax({
 					url: 'https://stark-retreat-48003.herokuapp.com/edit_profile',
 					type: 'POST',
 					data: JSON.stringify({
-						"tag": document.getElementById(this).value,
+						"tag": (this).parentElement.textContent.trim(),
 						"tag_command": "delete",
 						"token": Cookies.get("token")
 					}),
@@ -211,6 +206,7 @@
 					dataType: 'json',
 					success: (msg) => {
 						console.log(msg)
+						// console.log('object is delete')
 					},
 					error: (err) => {
 						console.log(err)
@@ -220,11 +216,11 @@
 		})
 	</script>
 
-<script src="Assets/js/quotepage.js"></script>
-<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js"
-	integrity="sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp" crossorigin="anonymous">
-</script>
+	<script src="Assets/js/quotepage.js"></script>
+	<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js"
+		integrity="sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp" crossorigin="anonymous">
+	</script>
 </body>
 
 </html>

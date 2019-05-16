@@ -7,6 +7,7 @@ body {
     width: 100vw;
     height: 100vh;
     margin: 0;
+    position: absolute;
 }
 
 .main,
@@ -173,9 +174,9 @@ a:hover{
     margin: auto auto;
     max-width: 198.8px;
     min-width: 100px;
-    height: 8vh;
+    height: 6vh;
     width: 14vw;
-    border-radius: 20px;
+    border-radius: 30px;
     border: solid 1px #707070;
     background-color: #6e1ae6;
     font-family: Quicksand;
@@ -206,10 +207,13 @@ a:hover{
 }
 
 @media (max-width: 600px) {
+    .container{
+        position: fixed;
+    }
     .login {
         width: 50vw;
-        height: auto;
-        position: absolute;
+        height: 50vh;
+        position: fixed;
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);

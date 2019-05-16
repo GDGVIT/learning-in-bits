@@ -7,10 +7,10 @@
 
 //     }
 // });
-// $("#two").on("click", "span" , function(e){
-//     $(this).parent().fadeOut(500,function(){
-//         // $(this).remove();
-//         $(this).parent().fadeOut();
-//     });
-//     e.stopPropagation();
-// });
+$("#two").on("click", "span" , function(e){
+    $(this).parent().addClass('hide').fadeOut(500,function(){
+        // $(this).remove();
+        $(this).parent().fadeOut();
+    });
+    e.stopPropagation();
+});
