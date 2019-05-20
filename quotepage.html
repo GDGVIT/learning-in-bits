@@ -40,7 +40,7 @@
 				<div class="col-2">
 					<div class="img">
 						<a href="profile.html">
-							<img class="img-responsive Person" src="Assets/person-icon.png">
+							<img class="img-responsive Person" id ="person" src="Assets/person-icon.png">
 						</a>
 					</div>
 				</div>
@@ -127,10 +127,12 @@
 				},
 				dataType: 'json',
 				success: (msg) => {
-					// console.log(msg)
+					console.log(msg)
 					console.log(document.cookie);
 					$('#q').html(' ');
 					$('#q').append(msg.quote);
+					$('#person').attr('src',msg.image_url);
+					$('#person').show();
 				},
 				error: (err) => {
 					console.log(err)

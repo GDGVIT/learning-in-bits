@@ -25,10 +25,11 @@ body {
   max-width: 126px;
   width: 10vw;
   margin-left: 30px;
-  /* margin-bottom: 20px; */
+  margin-bottom: 20px;
   height: auto;
   border-radius: 100%;
-  box-shadow:0px 1px 10px #6e1ae6 ;
+  box-shadow:0px 1px 10px #6e1ae6;
+
 }
 
 #overlay {
@@ -98,7 +99,7 @@ input[type="submit"]{
 
 .details {
   /* background: purple; */
-  width: 16vw;
+  width: 19vw;
   height: 50vh;
   margin: 56px;
   /* margin-right: 11vw; */
@@ -107,7 +108,7 @@ input[type="submit"]{
   /* margin-left: 665px; */
   position: fixed;
   left: 47%;
-  top: 55%;
+  top: 60%;
   transform: translate(-50%,-50%);
   text-align: center;
 }
