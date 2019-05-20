@@ -1,12 +1,22 @@
 <html>
 
+<head>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+
 <body>
+
+
+
+
+
     <button onclick="init(this)">click to add image</button>
     <div id="overlay" onclick="closePopup()"></div>
     <div id="popup">
         <div id="popupClose" onclick="closePopup()">X</div>
         <form id="data" method="post" enctype="multipart/form-data">
-            <input name="image" type="file" placeholder="Insert Image" accept="image/*" class="u custom-input" id="image">
+            <input name="image" type="file" placeholder="Insert Image" accept="image/*" class="u custom-input"
+                id="image">
             <input type="submit" id="submit">
         </form>
     </div>
@@ -40,25 +50,44 @@
             right: 5px;
             top: 5px;
         }
+
+        .custom-input::-webkit-file-upload-button {
+            visibility: hidden;
+        }
+
+        .custom-input::before {
+            content: 'Choose image';
+            display: inline-block;
+            background: #6e1ae6;
+            color: white;
+            border: 1px solid #999;
+            border-radius: 15px;
+            padding: 5px 8px;
+            /* white-space: nowrap; */
+            -webkit-user-select: none;
+            cursor: pointer;
+            line-height: 1.5;
+            font-size: 12px;
+        }
     </style>
 </body>
 <script>
+    closePopup();
+    /*START only for demo*/
+    function init(obj) {
+        obj.style.display = "none";
+        openPopup();
+    }
+    /*END only for demo*/
+    function openPopup() {
+        document.getElementById('overlay').style.display = 'block';
+        document.getElementById('popup').style.display = 'block';
+    }
 
-closePopup();
-/*START only for demo*/
-function init(obj){
-	obj.style.display="none";
-	openPopup();
-}
-/*END only for demo*/
-function openPopup(){
-	document.getElementById('overlay').style.display='block';
-	document.getElementById('popup').style.display='block';
-}
-function closePopup(){
-	document.getElementById('overlay').style.display='none';
-	document.getElementById('popup').style.display='none';
-}
+    function closePopup() {
+        document.getElementById('overlay').style.display = 'none';
+        document.getElementById('popup').style.display = 'none';
+    }
 </script>
 
 </html>

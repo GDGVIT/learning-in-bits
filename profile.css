@@ -25,18 +25,20 @@ body {
   max-width: 126px;
   width: 10vw;
   margin-left: 30px;
+  /* margin-bottom: 20px; */
   height: auto;
   border-radius: 100%;
   box-shadow:0px 1px 10px #6e1ae6 ;
 }
 
 #overlay {
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.1);
   height: 100%;
   left: 0;
   position: fixed;
   top: 0;
   width: 100%;
+  opacity: 0.5 !important;
   z-index: 9998;
 }
 
@@ -75,6 +77,20 @@ body {
   cursor: pointer;
   line-height: 1.5;
   font-size: 12px;
+}
+input[type="submit"]{
+  content: 'Save';
+  display: inline-block;
+  background: #6e1ae6;
+  color: white;
+  border: 1px solid #999;
+  border-radius: 15px;
+  padding: 5px 8px;
+  font-size: 12px;
+}
+.modalbtn{
+  color: transparent;
+  background: white;
 }
 .fa-pen {
   float: right;
@@ -246,7 +262,7 @@ button:focus {
   }
 
   .profile {
-    /* margin-left:0; */
+    /* margin-left:-25; */
     position: absolute;
     top: 50%;
     left: 40%;
@@ -254,7 +270,7 @@ button:focus {
   }
 
   .Person {
-    /* margin-left: -45px; */
+    margin-left: -25px;
     width: 15vw;
     position: absolute;
     bottom: 162px;
@@ -317,5 +333,16 @@ button:focus {
   input[type="password"]{
     margin-left: -36px;
 
+  }
+  #popup {
+    background: #fff;
+    height: 150px;
+    left: 50%;
+    margin-left: -103px;
+    margin-top: -75px;
+    position: fixed;
+    top: 50%;
+    width: 270px;
+    z-index: 9999;
   }
 }
