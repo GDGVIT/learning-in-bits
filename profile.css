@@ -275,4 +275,9 @@ button:focus {
     width: 20vw;
     right: 100px;
   }
+  input[type='text'],
+  input[type="password"]{
+    margin-left: -36px;
+
+  }
 }

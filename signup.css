@@ -41,6 +41,10 @@ html {
     bottom: 5vh;
     left: 8vw;
 }
+/* .footer{
+    height: 50px;
+    margin-top: 45px;
+} */
 
 .quote {
     position: fixed;
@@ -54,7 +58,7 @@ html {
 }
 
 .qh {
-    font-family: Quicksand;
+    font-family: 'Quicksand';
     font-size: 18px;
     font-weight: 300;
     font-style: normal;
@@ -67,7 +71,7 @@ html {
 
 .qf {
     font-weight: bold;
-    font-family: Quicksand;
+    font-family: 'Quicksand';
     float: right;
     font-size: 18px;
     font-style: normal;
@@ -87,7 +91,9 @@ html {
     right: 15vw;
     /* display:none; */
 }
-
+#submit{
+    display: none;
+}
 input:focus,
 select:focus,
 textarea:focus,
@@ -103,13 +109,15 @@ button:focus {
     max-height: auto;
     width: 15vw;
     height: 10vh;
-    font-family: Quicksand;
+    font-family: 'Quicksand';
     font-size: 30px;
     font-weight: bold;
     line-height: 1.26;
     letter-spacing: 0.4px;
     color: #6e1ae6;
     margin: auto auto;
+    margin-left: 116px;
+    margin-bottom: 20px;
 }
 
 .u {
@@ -121,7 +129,7 @@ button:focus {
     border: solid 2px #6e1ae6;
     display: block;
     padding: 12px;
-    margin: 3vh 1vw 1vh 2vw;
+    margin: 2vh 1vw 1vh 2vw;
     font-family: Quicksand;
     font-weight: bold;
     text-align: left;
@@ -139,8 +147,8 @@ button:focus {
     border: solid 2px #6e1ae6;
     display: block;
     padding: 12px;
-    margin: 3vh 1vw 1vh 2vw;
-    font-family: Quicksand;
+    margin: 2vh 1vw 1vh 2vw;
+    font-family: 'Quicksand';
     font-weight: bold;
     text-align: left;
     color: #141212;
@@ -157,7 +165,7 @@ button:focus {
     border-radius: 20px;
     border: solid 1px #707070;
     background-color: #6e1ae6;
-    font-family: Quicksand;
+    font-family: 'Quicksand';
     font-size: 18px;
     font-weight: bold;
     font-style: normal;
@@ -195,15 +203,6 @@ a:hover {
 }
 
 @media (max-width: 600px) {
-    .login {
-        width: 50vw;
-        height: auto;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-    }
-
     .signup {
         margin: 0 50px;
         width: 60vw;
@@ -213,6 +212,8 @@ a:hover {
         top: 55%;
         transform: translate(-50%, -50%);
         padding: 10px;
+        max-height: 60vh;
+        overflow-y: scroll;
 
     }
 
@@ -281,10 +282,14 @@ a:hover {
     }
 }
 @media(max-width:350px){
+    /* body{
+        max-height: 75vh;
+        overflow-y: auto;
+    } */
     .signup{
         max-height: 69vh;
         /* overflow-y: scroll; */
-    }
+     }
     .img{
         width: 15vw;
         height: auto;;

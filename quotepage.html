@@ -57,7 +57,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="container" id="two">
+		<!-- <div class="container" id="two">
 			<div class="row">
 				<div class="col-4 col-sm-2" id="try">
 					<div id="uno" class="hide">
@@ -91,8 +91,8 @@
 				</div>
 			</div>
 			<p class="hide" id="nomoretags">CAN ADD ONLY 6 TAGS</p>
-		</div>
-		<div class="container" id="three">
+		</div> -->
+		<!-- <div class="container" id="three">
 			<div class="row">
 				<div class="col-4"></div>
 				<div class="col-4">
@@ -103,7 +103,7 @@
 				</div>
 				<div class="col-4"></div>
 			</div>
-		</div>
+		</div> -->
 	</div>
 
 	</div>
@@ -128,6 +128,7 @@
 				dataType: 'json',
 				success: (msg) => {
 					// console.log(msg)
+					console.log(document.cookie);
 					$('#q').html(' ');
 					$('#q').append(msg.quote);
 				},

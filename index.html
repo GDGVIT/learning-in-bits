@@ -92,10 +92,10 @@
                             //way to store token
                             let token = response.token
                             document.cookie = "token =" + token;
-                            // console.log(token)
+                            console.log(token)
                             //alert("You are now redirected to the profile page");
                             setTimeout(function () {
-                                window.location = "profile.html";
+                                window.location = "quotepage.html";
                             }, 2000);
 
                         } else {
@@ -110,11 +110,11 @@
             });
 
         });
-        var $htmlOrBody = $('html,body'), scrollTopPadding = 8;
-        $('u').focus(function(){
-            var top = $(this).offset().top;
-            $htmlOrBody.scrollTop(top - scrollTopPadding);
-        });
+        // var $htmlOrBody = $('html,body'), scrollTopPadding = 8;
+        // $('u').focus(function(){
+        //     var top = $(this).offset().top;
+        //     $htmlOrBody.scrollTop(top - scrollTopPadding);
+        // });
         
         // document.body.addEventListener("focus",event => {
         //     const target = event.target;
