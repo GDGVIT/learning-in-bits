@@ -40,7 +40,7 @@
 }
 
 #q {
-  font-size: 1.2em;
+  font-size: 1.5em;
   font-weight: 900;
   font-style: normal;
   font-stretch: normal;
@@ -257,8 +257,8 @@ button:focus {
   }
 
   #q {
-    font-size: 0.8em;
-    overflow-y: scroll;
+    font-size: 1em;
+    /* overflow-y: scroll; */
   }
 
   #two,

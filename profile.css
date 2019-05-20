@@ -29,22 +29,53 @@ body {
   border-radius: 100%;
   box-shadow:0px 1px 10px #6e1ae6 ;
 }
-/* .shadow{
-  box-shadow: 1px solid #6e1ae6;
-} */
 
-.Person1 {
-  z-index: 1;
+#overlay {
+  background: rgba(0, 0, 0, 0.8);
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9998;
 }
 
-.Person2 {
-  z-index: 2;
+#popup {
+  background: #fff;
+  height: 150px;
+  left: 50%;
+  margin-left: -150px;
+  margin-top: -75px;
+  position: fixed;
+  top: 50%;
+  width: 300px;
+  z-index: 9999;
 }
 
-.Person3 {
-  z-index: 3;
+#popupClose {
+  color: #444;
+  font-family: Arial;
+  position: absolute;
+  right: 5px;
+  top: 5px;
 }
-
+.custom-input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.custom-input::before {
+  content: 'Choose image';
+  display: inline-block;
+  background: #6e1ae6;
+  color: white;
+  border: 1px solid #999;
+  border-radius: 15px;
+  padding: 5px 8px;
+  /* white-space: nowrap; */
+  -webkit-user-select: none;
+  cursor: pointer;
+  line-height: 1.5;
+  font-size: 12px;
+}
 .fa-pen {
   float: right;
 }
@@ -133,6 +164,10 @@ button:focus {
   letter-spacing: 1.9px;
   text-align: center;
   color: #6e1ae6;
+  max-width: 100vw;
+  word-break: keep-all;
+
+
 }
 
 .edit {
@@ -225,6 +260,8 @@ button:focus {
     bottom: 162px;
     left: 0;
   }
+  
+
 
   .bt {
     width: 25vw;
@@ -237,9 +274,10 @@ button:focus {
 
   .interests {
     font-size: 0.8em;
-    margin-left: 0px;
-    width: 30vw;
+    /* margin-left: 15px; */
+    max-width: 100vw;
     height: auto;
+    word-break: break-all;
   }
 
   .name,

@@ -1,0 +1,64 @@
+<html>
+
+<body>
+    <button onclick="init(this)">click to add image</button>
+    <div id="overlay" onclick="closePopup()"></div>
+    <div id="popup">
+        <div id="popupClose" onclick="closePopup()">X</div>
+        <form id="data" method="post" enctype="multipart/form-data">
+            <input name="image" type="file" placeholder="Insert Image" accept="image/*" class="u custom-input" id="image">
+            <input type="submit" id="submit">
+        </form>
+    </div>
+    <style>
+        #overlay {
+            background: rgba(0, 0, 0, 0.8);
+            height: 100%;
+            left: 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 9998;
+        }
+
+        #popup {
+            background: #fff;
+            height: 150px;
+            left: 50%;
+            margin-left: -150px;
+            margin-top: -75px;
+            position: fixed;
+            top: 50%;
+            width: 300px;
+            z-index: 9999;
+        }
+
+        #popupClose {
+            color: #444;
+            font-family: Arial;
+            position: absolute;
+            right: 5px;
+            top: 5px;
+        }
+    </style>
+</body>
+<script>
+
+closePopup();
+/*START only for demo*/
+function init(obj){
+	obj.style.display="none";
+	openPopup();
+}
+/*END only for demo*/
+function openPopup(){
+	document.getElementById('overlay').style.display='block';
+	document.getElementById('popup').style.display='block';
+}
+function closePopup(){
+	document.getElementById('overlay').style.display='none';
+	document.getElementById('popup').style.display='none';
+}
+</script>
+
+</html>

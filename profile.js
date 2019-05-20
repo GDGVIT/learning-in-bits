@@ -4,6 +4,7 @@ $(".details").on("click", ".fa-pen", function() {
         $(".name").fadeOut();
         $(".email").fadeOut();
         $(".password").fadeOut();
+        $(".interests").fadeOut();
     },100);
     $(".edit").fadeIn();
     $(".edit_last").fadeIn();
@@ -15,6 +16,7 @@ $(".details").on("click", ".fa-check", function (e) {
             $(".name").fadeIn();
             $(".email").fadeIn();
             $(".password").fadeIn();
+            $('.interests').fadeIn();
          },100);
         $(".edit").fadeOut();
         $(".edit_last").fadeOut();

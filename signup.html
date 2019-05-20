@@ -40,11 +40,11 @@
             <input type="text" placeholder="Email" class="u" id="email">
             <input type="password" placeholder="Password" class="p" id="password">
             <input type="password" placeholder="Confirm Password" class="p" id="cpassword">
-            <form id="data" method="post" enctype="multipart/form-data">
-                <input name="image" type="file" placeholder="Insert Image" accept="image/*" class="u" id="image">
+            <!-- <form id="data" method="post" enctype="multipart/form-data">
+                <input name="image" type="file" placeholder="Insert Image" accept="image/*" class="u custom-input" id="image">
                 <input type="submit" id="submit">
-            </form>
-            <input type="text" placeholder="Add 5 tags" class="u" id="tags">
+            </form> -->
+            <input type="text" placeholder="Add tags : cars,music,design " class="u" id="tags">
             <button class="b"> Sign Up <img src="Assets/Arrow Symbol.svg " class="arrow"></button>
             <a href="index.html">
                 <h6 class="new"> Already have an account? <span class="sign"> Log In! </span></h6>
@@ -66,7 +66,7 @@
                     ob.username = username;
                     ob.password = password;
                     ob.confirm_password = confirmPassword;
-                    ob.tags = ""
+                    ob.tags = document.getElementById('tags').value.split(',');
                     ob.fullname = fullName;
                     ob.email = email;
 
@@ -149,27 +149,32 @@
 
                             });
                         };
-                        $.ajax({
-                            url:'https://stark-retreat-48003.herokuapp.com/upload_image',
-                            type: 'POST',
-                            data: JSON.stringify({
-                                //image file
-                                "token": Cookies.get("token")
-                            }),
-                            contentType: 'application/json',
-                            dataType: 'json',
-                            success: function(msg){
-                                console.log(msg);
-                            },
-                            error: function(err){
-                                console.log(err);
-                            }
+                        // ajax call for image
+                        // var img = $('input[name="image"]').get(0).files[0];
+                        // var formData = new FormData();
+                        // formData.append('image' , img);
+                        // formData.append('json', JSON.stringify({
+                        //         "token": Cookies.get("token")
+                        //     }));
+                        // $.ajax({
+                        //     url:'https://stark-retreat-48003.herokuapp.com/upload_image',
+                        //     type: 'POST',
+                        //     data: formData,
+                        //     contentType: false,
+                        //     processData: false,
+                        //     cache: false,
+                        //     success: function(msg){
+                        //         console.log('success');
+                        //         console.log(msg);
+                        //     },
+                        //     error: function(err){
+                        //         console.log(err);
+                        //     }
 
-                        });
+                        // });
                     });
                 });
 
     </script>
 </body>
-
 </html>

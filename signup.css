@@ -41,6 +41,7 @@ html {
     bottom: 5vh;
     left: 8vw;
 }
+
 /* .footer{
     height: 50px;
     margin-top: 45px;
@@ -83,7 +84,7 @@ html {
 
 .signup {
     position: relative;
-    top: 15vh;
+    top: 11vh;
     left: 55vw;
     max-width: 450px;
     min-width: 150px;
@@ -91,9 +92,11 @@ html {
     right: 15vw;
     /* display:none; */
 }
-#submit{
+
+#submit {
     display: none;
 }
+
 input:focus,
 select:focus,
 textarea:focus,
@@ -160,7 +163,7 @@ button:focus {
     margin: auto auto;
     max-width: 198.8px;
     min-width: 100px;
-    height: 8vh;
+    height: 6vh;
     width: 14vw;
     border-radius: 20px;
     border: solid 1px #707070;
@@ -281,31 +284,40 @@ a:hover {
         height: 10vh;
     }
 }
-@media(max-width:350px){
+
+@media(max-width:350px) {
+
     /* body{
         max-height: 75vh;
         overflow-y: auto;
     } */
-    .signup{
+    .signup {
         max-height: 69vh;
         /* overflow-y: scroll; */
-     }
-    .img{
-        width: 15vw;
-        height: auto;;
     }
-    .qh{
+
+    .img {
+        width: 15vw;
+        height: auto;
+        ;
+    }
+
+    .qh {
         font-size: 0.7em;
     }
-    .qf{
+
+    .qf {
         font-size: 0.6em;
     }
-    .lg, .b{
-        font-size:1em;
+
+    .lg,
+    .b {
+        font-size: 1em;
     }
 }
-@media(max-width:420px){
-    .lg{
+
+@media(max-width:420px) {
+    .lg {
         margin-left: 25px;
     }
 }
