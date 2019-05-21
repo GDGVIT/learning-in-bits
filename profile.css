@@ -34,14 +34,14 @@ body {
 }
 
 #overlay {
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(240, 248, 255, 0.18);
   height: 100%;
   left: 0;
   position: fixed;
   top: 0;
   width: 100%;
   opacity: 0.5 !important;
-  z-index: 9998;
+  z-index: 9990;
 }
 
 #popup {

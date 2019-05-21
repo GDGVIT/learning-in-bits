@@ -262,19 +262,21 @@
 				formData.append('json', JSON.stringify({
 					"token": Cookies.get("token")
 				}));
+				// console.log(formData)
 
 				$.ajax({
 					url: 'https://stark-retreat-48003.herokuapp.com/upload_image',
 					type: 'POST',
 					data: formData,
+					enctype:"multipart/form-data",
+					// async: false,
 					contentType: false,
 					processData: false,
 					cache: false,
 					success: function (msg) {
 						console.log('img added');
 						console.log(msg);
-						alert(msg);
-						// window.location = "profile.html";
+						// alert(msg);
 					},
 					error: function (err) {
 						console.log(err);
