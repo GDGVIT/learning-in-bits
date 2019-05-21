@@ -84,7 +84,7 @@
 				</div>
 				<div>
 					<div class="edit_last">
-						<input type="text" placeholder=" " id="newtags">
+						<input type="text" placeholder="Enter tag to add/delete" id="newtags">
 					</div>
 					<p class="interests" id="tags"></p>
 					<p class="subscript">Interests</p>
@@ -124,159 +124,164 @@
 	<script>
 		let ob = {}
 		$(document).ready(function () {
-					//Ajax to pass token as page loads
-					$.ajax({
-						url: 'https://stark-retreat-48003.herokuapp.com/view_profile',
-						type: 'POST',
-						data: JSON.stringify({
-							"token": Cookies.get("token")
-						}),
-						contentType: 'application/json',
-						dataType: 'json',
-						crossDomain: true,
-						crossOrigin: true,
-						headers: {
-							"accept": "application/json",
-							"Access-Control-Allow-Origin": "*"
-						},
-						success: (msg) => {
+			//Ajax to pass token as page loads
+			$.ajax({
+				url: 'https://stark-retreat-48003.herokuapp.com/view_profile',
+				type: 'POST',
+				data: JSON.stringify({
+					"token": Cookies.get("token")
+				}),
+				contentType: 'application/json',
+				dataType: 'json',
+				crossDomain: true,
+				crossOrigin: true,
+				headers: {
+					"accept": "application/json",
+					"Access-Control-Allow-Origin": "*"
+				},
+				success: (msg) => {
 
-							console.log(msg)
-							// console.log(document.cookie)
-							$("#person").append('<img src ="' + msg.image_url + '" class="Person" />;')
-							$("#name").append(msg.fullname)
-							$("#email").append(msg.email)
-							if (msg.tags.length != 0) {
-								$("#tags").append(msg.tags.join())
-							}
-							document.cookie = "tags=" + msg.tags;
-							$('#person').attr('src',msg.image_url);
-							$('#person').show();
+					console.log(msg)
+					// console.log(document.cookie)
+					$("#person").append('<img src ="' + msg.image_url + '" class="Person" />;')
+					$("#name").append(msg.fullname)
+					$("#email").append(msg.email)
 
-						},
-						error: (err) => {
-							console.log(err)
-						}
-					})
-					$(".details").on("click", ".fa-check", function (e) {
-						$('#newtags').append(Cookies.get('tags'))
-						// ob.token = Cookies.get("token")
-						// ob.fullname = document.getElementById("fullname").value
-						// ob.email = document.getElementById("email").value
-						// ob.password = document.getElementById("confirmpass").value;
-						// ob.new_password = document.getElementById("newpass").value;
-						// ob.confirm_new_password = document.getElementById("confirmnewpass").value;
+					// if (msg.tags[msg.tags.length - 1] != 0) {
+					$("#tags").append(msg.tags.join());
+					// }
 
-						$.ajax({
-							url: 'https://stark-retreat-48003.herokuapp.com/edit_profile',
-							type: 'POST',
-							data: JSON.stringify({
-								"token": Cookies.get("token"),
-								"fullname": document.getElementById("fullname").value,
-								"email": document.getElementById("email").value
-							}),
-							crossDomain: true,
-							crossOrigin: true,
-							headers: {
-								"accept": "application/json",
-								"Access-Control-Allow-Origin": "*"
-							},
-							contentType: 'application/json',
-							success: function (msg) {
-								// console.log('Updated')
-								console.log(msg)
-								// document.getElementById('name').innerHTML = update.fullname;
-								// console.log(msg.fullname);
+					document.cookie = "tags=" + msg.tags;
+					$('#person').attr('src', msg.image_url);
+					$('#person').show();
 
-								// console.log(document.cookie)
+				},
+				error: (err) => {
+					console.log(err)
+				}
+			})
+			$(".details").on("click", ".fa-pen", function (e) {
+				$('#newtags').val(Cookies.get("tags"))
+			});
+			$(".details").on("click", ".fa-check", function (e) {
+				// ob.token = Cookies.get("token")
+				// ob.fullname = document.getElementById("fullname").value
+				// ob.email = document.getElementById("email").value
+				// ob.password = document.getElementById("confirmpass").value;
+				// ob.new_password = document.getElementById("newpass").value;
+				// ob.confirm_new_password = document.getElementById("confirmnewpass").value;
 
-							},
-							error: function (err) {
-								console.log(err)
-							}
+				$.ajax({
+					url: 'https://stark-retreat-48003.herokuapp.com/edit_profile',
+					type: 'POST',
+					data: JSON.stringify({
+						"token": Cookies.get("token"),
+						"fullname": document.getElementById("fullname").value,
+						"email": document.getElementById("email").value
+					}),
+					crossDomain: true,
+					crossOrigin: true,
+					headers: {
+						"accept": "application/json",
+						"Access-Control-Allow-Origin": "*"
+					},
+					contentType: 'application/json',
+					success: function (msg) {
+						// console.log('Updated')
+						console.log(msg)
+						// document.getElementById('name').innerHTML = update.fullname;
+						// console.log(msg.fullname);
 
-						})
+						// console.log(document.cookie)
 
-						//forgot password
-						$.ajax({
-							url: 'https://stark-retreat-48003.herokuapp.com/edit_profile',
-							type: 'POST',
-							data: JSON.stringify({
-								"username": document.getElementById("fullname").value,
-								"password": document.getElementById("confirmpass").value,
-								"new_password": document.getElementById("newpass").value,
-								"confirm_new_password": document.getElementById("confirmnewpass")
-									.value
+					},
+					error: function (err) {
+						console.log(err)
+					}
 
-							}),
-							crossDomain: true,
-							crossOrigin: true,
-							headers: {
-								"accept": "application/json",
-								"Access-Control-Allow-Origin": "*"
-							},
-							contentType: 'application/json',
-							success: function (msg) {
-								console.log(msg)
-							},
-							error: function (err) {
-								console.log(err)
-							}
+				})
 
-						})
-						$.ajax({
-							url: 'https://stark-retreat-48003.herokuapp.com/edit_profile',
-							type: 'POST',
-							data: JSON.stringify({
-								"tag": document.getElementById('newtags').value.split(','),
-								"tag_command": "add",
-								"token": Cookies.get("token")
-							}),
-							contentType: 'application/json',
-							crossDomain: true,
-							crossOrigin: true,
-							headers: {
-								"accept": "application/json",
-								"Access-Control-Allow-Origin": "*"
-							},
-							dataType: 'json',
-							success: (msg) => {
-								console.log(msg)
-								console.log('added');
-							},
-							error: (err) => {
-								console.log(err)
-							}
-						})
-					})
-					//ajax for image 
-					$('#data').on('submit', (function (e) {
-							e.preventDefault();
-							var img = $('input[name="image"]').get(0).files[0];
-							var formData = new FormData();
-							formData.append('json', JSON.stringify({
-								"token": Cookies.get("token")
-							}));
-							formData.append('image', img);
-							$.ajax({
-								url: 'https://stark-retreat-48003.herokuapp.com/upload_image',
-								type: 'POST',
-								data: formData,
-								contentType: false,
-								processData: false,
-								cache: false,
-								success: function (msg) {
-									console.log('img added');
-									console.log(msg);
-									// window.location = "profile.html";
-								},
-								error: function (err) {
-									console.log(err);
-								}
-							});
-						})
-						)
-					});
+				//forgot password
+				$.ajax({
+					url: 'https://stark-retreat-48003.herokuapp.com/edit_profile',
+					type: 'POST',
+					data: JSON.stringify({
+						"username": document.getElementById("fullname").value,
+						"password": document.getElementById("confirmpass").value,
+						"new_password": document.getElementById("newpass").value,
+						"confirm_new_password": document.getElementById("confirmnewpass")
+							.value
+
+					}),
+					crossDomain: true,
+					crossOrigin: true,
+					headers: {
+						"accept": "application/json",
+						"Access-Control-Allow-Origin": "*"
+					},
+					contentType: 'application/json',
+					success: function (msg) {
+						console.log(msg)
+					},
+					error: function (err) {
+						console.log(err)
+					}
+
+				})
+				$.ajax({
+					url: 'https://stark-retreat-48003.herokuapp.com/edit_profile',
+					type: 'POST',
+					data: JSON.stringify({
+						"token": Cookies.get("token"),
+						"tags": document.getElementById('newtags').value.split(',')
+					}),
+					contentType: 'application/json',
+					crossDomain: true,
+					crossOrigin: true,
+					headers: {
+						"accept": "application/json",
+						"Access-Control-Allow-Origin": "*"
+					},
+					dataType: 'json',
+					success: (msg) => {
+						console.log(msg)
+						console.log('added');
+					},
+					error: (err) => {
+						console.log(err)
+					}
+				})
+
+			})
+			//ajax for image 
+			$('#data').on('submit', (function (e) {
+				e.preventDefault();
+				var img = $('input[name="image"]').get(0).files[0];
+				var formData = new FormData();
+				formData.append('image', img);
+				formData.append('json', JSON.stringify({
+					"token": Cookies.get("token")
+				}));
+
+				$.ajax({
+					url: 'https://stark-retreat-48003.herokuapp.com/upload_image',
+					type: 'POST',
+					data: formData,
+					contentType: false,
+					processData: false,
+					cache: false,
+					success: function (msg) {
+						console.log('img added');
+						console.log(msg);
+						alert(msg);
+						// window.location = "profile.html";
+					},
+					error: function (err) {
+						console.log(err);
+					}
+				});
+			}))
+		});
 	</script>
 
 </body>

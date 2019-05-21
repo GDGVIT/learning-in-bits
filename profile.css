@@ -25,6 +25,7 @@ body {
   max-width: 126px;
   width: 10vw;
   margin-left: 30px;
+  margin-top: -45px;
   margin-bottom: 20px;
   height: auto;
   border-radius: 100%;
@@ -255,7 +256,28 @@ button:focus {
   cursor: pointer;
 
 }
+@media only screen and (max-width:350px){
+    .Person{
+      top: -100px !important;
+      margin-left: -19px !important;
 
+    }
+    .details{
+      margin-top: 30px !important;
+    }
+    .bt{
+      left: 42px !important;
+    }
+  
+}
+@media (min-width: 411px) and (max-width:414px){
+  .Person{
+    top: -180px !important;
+  }
+  .details{
+    margin-top: 27px !important;
+  }
+}
 @media only screen and (max-width:600px) {
   .container {
     left: 0;
@@ -275,11 +297,10 @@ button:focus {
     width: 15vw;
     position: absolute;
     bottom: 162px;
+    top: -89px;
     left: 0;
   }
-  
-
-
+ 
   .bt {
     width: 25vw;
     height: 4vh;

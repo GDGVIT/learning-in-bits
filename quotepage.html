@@ -127,8 +127,8 @@
 				},
 				dataType: 'json',
 				success: (msg) => {
-					console.log(msg)
-					console.log(document.cookie);
+					// console.log(msg)
+					// console.log(document.cookie);
 					$('#q').html(' ');
 					$('#q').append(msg.quote);
 					$('#person').attr('src',msg.image_url);
@@ -138,89 +138,90 @@
 					console.log(err)
 				}
 			})
-			//Ajax to add tag on enter click
-			$("#addtag").keypress((e) => {
-				// console.log($(this).text())
-				
-				if (e.which == 13) {
-					ob.tag = document.getElementById("addtag").value;
-					if ($('#uno').hasClass('hide')) {
-						$('#uno').prepend(ob.tag).removeClass('hide');
-					} else if ($('#dos').hasClass('hide')) {
-						$('#dos').prepend(ob.tag).removeClass('hide');
-					} else if ($('#tres').hasClass('hide')) {
-						$('#tres').prepend(ob.tag).removeClass('hide');
-					} else if ($('#quad').hasClass('hide')) {
-						$('#quad').prepend(ob.tag).removeClass('hide');
-					} else if ($('#pent').hasClass('hide')) {
-						$('#pent').prepend(ob.tag).removeClass('hide');
-					} else if ($('#hex').hasClass('hide')) {
-						$('#hex').prepend(ob.tag).removeClass('hide');
-					} else {
-						$('#nomoretags').removeClass('hide');
-						// console.log('NO MORE TAGS');
-					}
-					$('#addtag').val('');
-
-					ob.tag_command = "add";
-					ob.token = Cookies.get("token")
-					// console.log(JSON.stringify(ob))
-					// console.log('Reached first Ajax')
-					$.ajax({
-						url: 'https://stark-retreat-48003.herokuapp.com/edit_profile',
-						type: 'POST',
-						data: JSON.stringify(ob),
-						contentType: 'application/JSON',
-						crossDomain: true,
-						crossOrigin: true,
-						headers: {
-							"accept": "application/json",
-							"Access-Control-Allow-Origin": "*"
-						},
-						dataType: 'json',
-						success: (msg) => {
-							// console.log('first ajax successful')
-							console.log(msg)
-							// $("#two").append(ob.tag)
-							// displayQuotes(id)
-						},
-						error: (err) => {
-							// console.log('first ajax error')
-							console.log(err.responseJSON);
-
-						}
-					})
-				}
-			})
-			//Deleting tags
-			$("#two").on("click", "span", function (e) {
-				console.log(this);
-				$.ajax({
-					url: 'https://stark-retreat-48003.herokuapp.com/edit_profile',
-					type: 'POST',
-					data: JSON.stringify({
-						"tag": (this).parentElement.textContent.trim(),
-						"tag_command": "delete",
-						"token": Cookies.get("token")
-					}),
-					contentType: 'application/json',
-					crossDomain: true,
-					crossOrigin: true,
-					headers: {
-						"accept": "application/json",
-						"Access-Control-Allow-Origin": "*"
-					},
-					dataType: 'json',
-					success: (msg) => {
-						console.log(msg)
-						// console.log('object is delete')
-					},
-					error: (err) => {
-						console.log(err)
-					}
-				})
-			})
 		})
+			//Ajax to add tag on enter click
+			// $("#addtag").keypress((e) => {
+			// 	// console.log($(this).text())
+				
+			// 	if (e.which == 13) {
+			// 		ob.tag = document.getElementById("addtag").value;
+			// 		if ($('#uno').hasClass('hide')) {
+			// 			$('#uno').prepend(ob.tag).removeClass('hide');
+			// 		} else if ($('#dos').hasClass('hide')) {
+			// 			$('#dos').prepend(ob.tag).removeClass('hide');
+			// 		} else if ($('#tres').hasClass('hide')) {
+			// 			$('#tres').prepend(ob.tag).removeClass('hide');
+			// 		} else if ($('#quad').hasClass('hide')) {
+			// 			$('#quad').prepend(ob.tag).removeClass('hide');
+			// 		} else if ($('#pent').hasClass('hide')) {
+			// 			$('#pent').prepend(ob.tag).removeClass('hide');
+			// 		} else if ($('#hex').hasClass('hide')) {
+			// 			$('#hex').prepend(ob.tag).removeClass('hide');
+			// 		} else {
+			// 			$('#nomoretags').removeClass('hide');
+			// 			// console.log('NO MORE TAGS');
+			// 		}
+			// 		$('#addtag').val('');
+
+			// 		ob.tag_command = "add";
+			// 		ob.token = Cookies.get("token")
+			// 		// console.log(JSON.stringify(ob))
+			// 		// console.log('Reached first Ajax')
+			// 		$.ajax({
+			// 			url: 'https://stark-retreat-48003.herokuapp.com/edit_profile',
+			// 			type: 'POST',
+			// 			data: JSON.stringify(ob),
+			// 			contentType: 'application/JSON',
+			// 			crossDomain: true,
+			// 			crossOrigin: true,
+			// 			headers: {
+			// 				"accept": "application/json",
+			// 				"Access-Control-Allow-Origin": "*"
+			// 			},
+			// 			dataType: 'json',
+			// 			success: (msg) => {
+			// 				// console.log('first ajax successful')
+			// 				console.log(msg)
+			// 				// $("#two").append(ob.tag)
+			// 				// displayQuotes(id)
+			// 			},
+			// 			error: (err) => {
+			// 				// console.log('first ajax error')
+			// 				console.log(err.responseJSON);
+
+			// 			}
+			// 		})
+			// 	}
+			// })
+			// //Deleting tags
+			// $("#two").on("click", "span", function (e) {
+			// 	console.log(this);
+			// 	$.ajax({
+			// 		url: 'https://stark-retreat-48003.herokuapp.com/edit_profile',
+			// 		type: 'POST',
+			// 		data: JSON.stringify({
+			// 			"tag": (this).parentElement.textContent.trim(),
+			// 			"tag_command": "delete",
+			// 			"token": Cookies.get("token")
+			// 		}),
+			// 		contentType: 'application/json',
+			// 		crossDomain: true,
+			// 		crossOrigin: true,
+			// 		headers: {
+			// 			"accept": "application/json",
+			// 			"Access-Control-Allow-Origin": "*"
+			// 		},
+			// 		dataType: 'json',
+			// 		success: (msg) => {
+			// 			console.log(msg)
+			// 			// console.log('object is delete')
+			// 		},
+			// 		error: (err) => {
+			// 			console.log(err)
+			// 		}
+			// 	})
+			// })
+		// })
 	</script>
 
 	<script src="Assets/js/quotepage.js"></script>
