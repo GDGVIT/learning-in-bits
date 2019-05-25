@@ -15,7 +15,6 @@ $(".details").on("click", ".fa-check", function (e) {
         setTimeout(function () {
             $(".name").fadeIn();
             $(".email").fadeIn();
-            $(".password").fadeIn();
             $('.interests').fadeIn();
          },100);
         $(".edit").fadeOut();

@@ -67,7 +67,7 @@
 
 				</div>
 				<div>
-					<p class="password" style="visibility:hidden;">Password</p>
+					<p class="password" style="display:none;">Password</p>
 					<div class="edit">
 						<input type="password" placeholder="Confirm password" id="confirmpass">
 					</div>
@@ -262,7 +262,7 @@
 				formData.append('json', JSON.stringify({
 					"token": Cookies.get("token")
 				}));
-				// console.log(formData)
+				console.log(formData)
 
 				$.ajax({
 					url: 'https://stark-retreat-48003.herokuapp.com/upload_image',

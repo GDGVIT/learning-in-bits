@@ -23,8 +23,8 @@ body {
 .Person2,
 .Person3 {
   max-width: 126px;
-  width: 10vw;
-  margin-left: 30px;
+  width: 8vw;
+  margin-left: 25px;
   margin-top: -45px;
   margin-bottom: 20px;
   height: auto;
@@ -109,7 +109,7 @@ input[type="submit"]{
   /* margin-left: 665px; */
   position: fixed;
   left: 47%;
-  top: 60%;
+  top: 57%;
   transform: translate(-50%,-50%);
   text-align: center;
 }
@@ -169,7 +169,7 @@ button:focus {
   letter-spacing: 1px;
   text-align: center;
   color: #000000;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .interests {
