@@ -260,9 +260,11 @@
 				var formData = new FormData();
 				formData.append('image', img);
 				formData.append('json', JSON.stringify({
-					"token": Cookies.get("token")
+					"token": Cookies.get("token")	
 				}));
 				console.log(formData)
+				console.log(img)
+				console.log(Cookies.get("token"))
 
 				$.ajax({
 					url: 'https://stark-retreat-48003.herokuapp.com/upload_image',
