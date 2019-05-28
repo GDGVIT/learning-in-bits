@@ -38,7 +38,7 @@
 					<div id="overlay" onclick="closePopup()"></div>
 					<div id="popup">
 						<div id="popupClose" onclick="closePopup()">X</div>
-						<form id="data" method="post" enctype="multipart/form-data">
+						<form id="formData" method="POST" enctype="multipart/form-data">
 							<input name="image" type="file" placeholder="Insert Image" accept="image/*"
 								class="u custom-input" id="image">
 							<input type="submit" id="submit">
@@ -254,31 +254,27 @@
 
 			})
 			//ajax for image 
-			$('#data').on('submit', (function (e) {
+			$('#formData').on('submit', (function (e) {
 				e.preventDefault();
-				var img = $('input[name="image"]').get(0).files[0];
+				var img = $('#image').get(0).files[0];
 				var formData = new FormData();
 				formData.append('image', img);
-				formData.append('json', JSON.stringify({
-					"token": Cookies.get("token")	
-				}));
+				formData.append('token', Cookies.get("token"));
 				console.log(formData)
 				console.log(img)
 				console.log(Cookies.get("token"))
 
 				$.ajax({
 					url: 'https://stark-retreat-48003.herokuapp.com/upload_image',
-					type: 'POST',
 					data: formData,
-					enctype:"multipart/form-data",
-					// async: false,
+					type: 'POST',
 					contentType: false,
 					processData: false,
 					cache: false,
 					success: function (msg) {
 						console.log('img added');
 						console.log(msg);
-						// alert(msg);
+						window.location.reload();
 					},
 					error: function (err) {
 						console.log(err);
